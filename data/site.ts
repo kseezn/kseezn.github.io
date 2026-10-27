@@ -5,6 +5,7 @@ export const site = {
   name: "노무법인 현명",
   englishName: "HYEONMYEONG",
   blog: "https://blog.naver.com/nomusa91",
+  youtube: "https://www.youtube.com/@wiselabor",
   phone: "", // 예: "041-000-0000"
   fax: "",
   email: "",

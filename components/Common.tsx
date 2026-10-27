@@ -230,9 +230,14 @@ export function SiteFooter() {
             {site.name}
           </Link>
           <p>기업과 근로자를 위한 인사·노무 파트너</p>
-          <a href={site.blog} target="_blank" rel="noopener noreferrer">
-            네이버 블로그 ↗
-          </a>
+          <p className="footer-links">
+            <a href={site.blog} target="_blank" rel="noopener noreferrer">
+              네이버 블로그 ↗
+            </a>
+            <a href={site.youtube} target="_blank" rel="noopener noreferrer">
+              유튜브 ↗
+            </a>
+          </p>
         </div>
         <div className="footer-info">
           {site.address && <p>{site.address}</p>}

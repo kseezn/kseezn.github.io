@@ -9,8 +9,10 @@ import {
   ServiceIcon,
 } from "@/components/Common";
 import LogoMark from "@/components/LogoMark";
+import VideoGrid from "@/components/VideoGrid";
 import { coreSlugs, hero, members, services, site, strengths } from "@/data/site";
 import { getPosts } from "@/lib/blog";
+import { getVideos } from "@/lib/youtube";
 
 export default function HomePage() {
   // coreSlugs에 적은 순서대로 핵심 업무 3개를 꺼냅니다.
@@ -56,6 +58,12 @@ export default function HomePage() {
                 N
               </b>
               네이버 블로그 ↗
+            </a>
+            <a href={site.youtube} target="_blank" rel="noopener noreferrer">
+              <b className="youtube" aria-hidden="true">
+                ▶
+              </b>
+              유튜브 ↗
             </a>
             {site.kakao && (
               <a href={site.kakao} target="_blank" rel="noopener noreferrer">
@@ -160,8 +168,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. 법인 소식 · HR뉴스 */}
+      {/* 7. 유튜브 최근 영상 3개 */}
       <section className="section section-muted">
+        <div className="container">
+          <SectionHeading
+            eyebrow="VIDEOS"
+            title="현명 영상"
+            description="유튜브 채널 ‘현명한 노무사’의 최근 영상입니다. 썸네일을 누르면 바로 재생됩니다."
+            align="center"
+          />
+          <VideoGrid videos={getVideos(3)} />
+          <div className="center">
+            <Link className="more" href="/videos/">
+              영상 전체 보기 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. 법인 소식 · HR뉴스 */}
+      <section className="section">
         <div className="container">
           <SectionHeading
             eyebrow="NEWS"
@@ -188,15 +214,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. 자주 묻는 질문 */}
-      <section className="section" id="faq">
+      {/* 9. 자주 묻는 질문 */}
+      <section className="section section-muted" id="faq">
         <div className="container">
           <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" align="center" />
           <FaqList />
         </div>
       </section>
 
-      {/* 9. 상담 안내 */}
+      {/* 10. 상담 안내 */}
       <ContactBand />
     </>
   );
