@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "sync": "node scripts/sync-blog.mjs && node scripts/sync-youtube.mjs",
+    "sync:blog": "node scripts/sync-blog.mjs",
     "sync:youtube": "node scripts/sync-youtube.mjs",
-    "prebuild": "npm run sync:youtube",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
