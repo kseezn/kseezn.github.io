@@ -6,15 +6,16 @@ export const site = {
   englishName: "HYEONMYEONG",
   blog: "https://blog.naver.com/nomusa91",
   youtube: "https://www.youtube.com/@wiselabor",
-  phone: "", // 예: "041-000-0000"
+  phone: "041-556-5027", // 대표전화 (천안 본사)
   fax: "",
   email: "",
   hours: "", // 예: "평일 09:00 - 18:00"
   address: "",
   mapUrl: "", // 네이버 지도 링크
   kakao: "", // 카카오톡 채널 링크
-  representative: "",
-  businessNumber: "",
+  representative: "이철",
+  businessNumber: "435-86-00874",
+  naverMapKeyId: "rph088lnxz", // 네이버 지도 Client ID (아임웹 때 쓰던 것). 비우면 지도 대신 '네이버 지도에서 보기' 버튼이 나옵니다.
 };
 
 // 메인 첫 화면(남색 영역)
@@ -151,3 +152,53 @@ export type Member = {
 
 // 구성원을 채우면 첫 번째 사람이 메인 화면 대표 소개에 나옵니다.
 export const members: Member[] = [];
+
+export type Office = {
+  id: string; // 주소 끝에 붙는 영문 이름 (/location/#cheonan)
+  name: string;
+  phone: string;
+  address: string; // 지도에서 위치를 찾을 도로명 주소 (건물 번호까지만)
+  detail: string; // 층·호수·건물명
+  lat?: number; // 지도 위치가 조금 어긋나면 위도·경도를 직접 넣으세요.
+  lng?: number;
+  naverMapUrl?: string; // 네이버 지도 '공유' 링크를 넣으면 길찾기 버튼이 그 장소로 바로 열립니다.
+};
+
+// 사무실 목록. 오시는 길 페이지, 상담 문의 페이지, 푸터에 함께 쓰입니다.
+export const offices: Office[] = [
+  {
+    id: "cheonan",
+    name: "천안 본사",
+    phone: "041-556-5027",
+    address: "충청남도 천안시 동남구 청수14로 102",
+    detail: "6층 606·607호 (청당동, 에이스법조타워)",
+    lat: 36.785563,
+    lng: 127.157387,
+    naverMapUrl: "https://naver.me/xumadMhs",
+  },
+  {
+    id: "asan",
+    name: "아산 지사",
+    phone: "041-541-9333",
+    address: "충청남도 아산시 탕정면 이순신대로 442",
+    detail: "3층 306호 (스마트타워 빌딩)",
+    lat: 36.796986,
+    lng: 127.052831,
+    naverMapUrl: "https://naver.me/xDC9Lle1",
+  },
+  {
+    id: "seoul",
+    name: "서울 지사",
+    phone: "02-2138-0457",
+    address: "서울특별시 중구 퇴계로 197",
+    detail: "5층 512호 (필동2가, 충무빌딩)",
+    lat: 37.561433,
+    lng: 126.993907,
+    naverMapUrl: "https://naver.me/xcABpfKl",
+  },
+];
+
+// 네이버 지도에서 이 사무실을 여는 주소 (공유 링크가 없으면 주소로 검색)
+export function naverMapLink(office: Office) {
+  return office.naverMapUrl || `https://map.naver.com/p/search/${encodeURIComponent(office.address)}`;
+}

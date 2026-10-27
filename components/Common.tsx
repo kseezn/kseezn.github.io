@@ -1,7 +1,7 @@
 // 여러 페이지에서 함께 쓰는 화면 조각들입니다.
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
-import { faqs, members, services, site, type Service } from "@/data/site";
+import { faqs, members, offices, services, site, type Service } from "@/data/site";
 import type { BlogPost } from "@/lib/blog";
 import { sectionLabels } from "@/lib/labels";
 import { formatDate } from "@/lib/format";
@@ -229,7 +229,11 @@ export function SiteFooter() {
             <LogoMark size={34} />
             {site.name}
           </Link>
-          <p>기업과 근로자를 위한 인사·노무 파트너</p>
+          <p>
+            {site.representative && <>대표 {site.representative}</>}
+            {site.representative && site.businessNumber && " · "}
+            {site.businessNumber && <>사업자등록번호 {site.businessNumber}</>}
+          </p>
           <p className="footer-links">
             <a href={site.blog} target="_blank" rel="noopener noreferrer">
               네이버 블로그 ↗
@@ -239,12 +243,16 @@ export function SiteFooter() {
             </a>
           </p>
         </div>
-        <div className="footer-info">
-          {site.address && <p>{site.address}</p>}
-          {site.representative && <p>대표 {site.representative}</p>}
-          {site.businessNumber && <p>사업자등록번호 {site.businessNumber}</p>}
-          {site.phone && <p>대표전화 {site.phone}</p>}
-          {site.email && <p>이메일 {site.email}</p>}
+        <div className="footer-offices">
+          {offices.map((office) => (
+            <p key={office.id}>
+              <b>
+                {office.name} {office.phone}
+              </b>
+              <br />
+              {office.address} {office.detail}
+            </p>
+          ))}
           <p className="copyright">© {site.name}. All rights reserved.</p>
         </div>
       </div>

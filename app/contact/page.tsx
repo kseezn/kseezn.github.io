@@ -1,49 +1,57 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/Common";
-import { site } from "@/data/site";
+import { naverMapLink, offices, site } from "@/data/site";
 
 export const metadata: Metadata = { title: "상담 문의" };
 
 export default function ContactPage() {
-  // data/site.ts에 값이 있는 항목만 보여 줍니다.
-  const contacts = [
-    { label: "대표전화", value: site.phone, href: `tel:${site.phone}` },
-    { label: "이메일", value: site.email, href: `mailto:${site.email}` },
-    { label: "상담시간", value: site.hours },
-    { label: "주소", value: site.address },
-  ].filter((item) => item.value);
-
   return (
     <>
-      <PageHero title="상담 문의" description="상담 채널과 연락처를 안내합니다." />
+      <PageHero title="상담 문의" description="가까운 사무실로 전화하시거나 아래 채널로 문의해 주세요." />
       <section className="section">
         <div className="container contact-grid">
           <article className="info-card">
             <h2>연락처 안내</h2>
-            {contacts.length > 0 ? (
-              <dl className="info-list">
-                {contacts.map((item) => (
-                  <div key={item.label}>
-                    <dt>{item.label}</dt>
-                    <dd>{item.href ? <a href={item.href}>{item.value}</a> : item.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            ) : (
-              <p>연락처 안내를 준비하고 있습니다. 공식 블로그를 확인해 주세요.</p>
-            )}
+            <dl className="info-list">
+              {offices.map((office) => (
+                <div key={office.id}>
+                  <dt>{office.name}</dt>
+                  <dd>
+                    <a href={`tel:${office.phone}`}>{office.phone}</a>
+                    <br />
+                    <span className="info-sub">{office.address}</span>{" "}
+                    <a className="info-map" href={naverMapLink(office)} target="_blank" rel="noopener noreferrer">
+                      지도 ↗
+                    </a>
+                  </dd>
+                </div>
+              ))}
+              {site.email && (
+                <div>
+                  <dt>이메일</dt>
+                  <dd>
+                    <a href={`mailto:${site.email}`}>{site.email}</a>
+                  </dd>
+                </div>
+              )}
+              {site.hours && (
+                <div>
+                  <dt>상담시간</dt>
+                  <dd>{site.hours}</dd>
+                </div>
+              )}
+            </dl>
             <div className="button-row">
-              <a className="button button-navy" href={site.blog} target="_blank" rel="noopener noreferrer">
+              <Link className="button button-navy" href="/location/">
+                오시는 길
+              </Link>
+              <a className="button button-outline" href={site.blog} target="_blank" rel="noopener noreferrer">
                 공식 블로그 ↗
               </a>
               {site.kakao && (
                 <a className="button button-outline" href={site.kakao} target="_blank" rel="noopener noreferrer">
                   카카오톡 상담 ↗
-                </a>
-              )}
-              {site.mapUrl && (
-                <a className="button button-outline" href={site.mapUrl} target="_blank" rel="noopener noreferrer">
-                  오시는 길 ↗
                 </a>
               )}
             </div>

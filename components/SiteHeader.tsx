@@ -38,6 +38,7 @@ const menu: MenuItem[] = [
   { label: "영상", href: "/videos/" },
   { label: "HR뉴스", href: "/hrnews/" },
   { label: "자주 묻는 질문", href: "/faq/" },
+  { label: "오시는 길", href: "/location/" },
 ];
 
 export default function SiteHeader() {
