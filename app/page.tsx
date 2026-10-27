@@ -67,6 +67,14 @@ export default function HomePage() {
             </a>
             {site.kakao && (
               <a href={site.kakao} target="_blank" rel="noopener noreferrer">
+                <b className="kakao" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24">
+                    <path
+                      d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7l-1 3.8 4.3-2.9c.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </b>
                 카카오톡 상담 ↗
               </a>
             )}

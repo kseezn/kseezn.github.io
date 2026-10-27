@@ -7,12 +7,12 @@ export const site = {
   blog: "https://blog.naver.com/nomusa91",
   youtube: "https://www.youtube.com/@wiselabor",
   phone: "041-556-5027", // 대표전화 (천안 본사)
-  fax: "",
+  fax: "041-557-5027",
   email: "",
-  hours: "", // 예: "평일 09:00 - 18:00"
-  address: "",
-  mapUrl: "", // 네이버 지도 링크
-  kakao: "", // 카카오톡 채널 링크
+  hours: "평일 09:30 - 17:30", // 예: "평일 09:00 - 18:00"
+  address: "충남 천안시 동남구 청수14로 102, 에이스법조타워 606~607호",
+  mapUrl: "https://naver.me/xumadMhs", // 네이버 지도 링크
+  kakao: "https://pf.kakao.com/_RJyIG/chat", // 카카오톡 채널 링크
   representative: "이철",
   businessNumber: "435-86-00874",
   naverMapKeyId: "rph088lnxz", // 네이버 지도 Client ID (아임웹 때 쓰던 것). 비우면 지도 대신 '네이버 지도에서 보기' 버튼이 나옵니다.

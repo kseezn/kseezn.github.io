@@ -1416,3 +1416,14 @@ button {
     text-align: left;
   }
 }
+
+/* ── 카카오톡 표시 (첫 화면 채널 줄) ── */
+.kakao {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #fee500;
+  color: #3c1e1e;
+}
