@@ -1427,3 +1427,42 @@ button {
   background: #fee500;
   color: #3c1e1e;
 }
+
+/* ── 지도 위 투명한 막 (스크롤할 때 지도가 움직이지 않게) ── */
+.map-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 0 14px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.map-shield span {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(8, 23, 48, 0.75);
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.map-shield:hover span,
+.map-shield:focus-visible span {
+  opacity: 1;
+}
+/* 터치 화면에서는 안내 글자를 항상 보여 줍니다 */
+@media (hover: none) {
+  .map-shield span {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-shield span {
+    transition: none;
+  }
+}

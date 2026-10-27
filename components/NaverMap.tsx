@@ -100,14 +100,41 @@ export default function NaverMap({ office }: { office: Office }) {
     };
   }, [office]);
 
+  // 지도 위를 덮는 투명한 막. 막이 있는 동안은 스크롤·손가락 끌기가 페이지로 전달되고,
+  // 지도를 한 번 누르면 막이 걷혀서 지도를 움직이거나 확대할 수 있습니다.
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (!active) return;
+    // 지도 바깥을 누르면 다시 막을 씌웁니다.
+    function handleOutside(event: PointerEvent) {
+      if (!boxRef.current?.contains(event.target as Node)) setActive(false);
+    }
+    document.addEventListener("pointerdown", handleOutside);
+    return () => document.removeEventListener("pointerdown", handleOutside);
+  }, [active]);
+
   const link = naverMapLink(office);
 
   return (
-    <div className="map-box">
+    <div
+      className="map-box"
+      ref={boxRef}
+      onPointerLeave={(event) => {
+        // PC에서 마우스가 지도 밖으로 나가면 다시 막을 씌웁니다.
+        if (event.pointerType === "mouse") setActive(false);
+      }}
+    >
       {status !== "off" && status !== "failed" && (
         <div className="map-canvas" ref={mapRef} aria-label={`${office.name} 위치 지도`} role="img">
           {status === "loading" && <span className="map-loading">지도를 불러오는 중…</span>}
         </div>
+      )}
+      {status === "ready" && !active && (
+        <button type="button" className="map-shield" onClick={() => setActive(true)}>
+          <span>눌러서 지도 움직이기</span>
+        </button>
       )}
       {(status === "off" || status === "failed") && (
         <a className="map-placeholder" href={link} target="_blank" rel="noopener noreferrer">
