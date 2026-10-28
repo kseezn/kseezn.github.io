@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <ScrollReveal />
       </body>
     </html>
   );

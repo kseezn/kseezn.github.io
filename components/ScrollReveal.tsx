@@ -48,7 +48,8 @@ export default function ScrollReveal() {
     );
 
     document.querySelectorAll<HTMLElement>(SELECTOR).forEach((element) => {
-      if (element.classList.contains("reveal")) return;
+      // 이미 나타난 것은 건너뜁니다. (개발 모드에서 이 코드가 두 번 실행돼도 아직 안 나타난 것은 다시 지켜봄)
+      if (element.classList.contains("is-revealed")) return;
       // 같은 줄에 나란히 있는 카드는 차례로 조금씩 늦게 나타납니다.
       const order = element.parentElement ? Array.from(element.parentElement.children).indexOf(element) : 0;
       element.style.setProperty("--reveal-delay", `${Math.min(Math.max(order, 0), 5) * 80}ms`);
