@@ -5,8 +5,19 @@ import { useState } from "react";
 import LogoMark from "@/components/LogoMark";
 import type { Member } from "@/data/members";
 
+// "/members/lee-cheol.jpg"와 [300, 600] → "/members/lee-cheol-300.jpg 300w, /members/lee-cheol-600.jpg 600w, /members/lee-cheol.jpg 1200w"
+// 브라우저가 화면에 표시되는 크기에 가장 알맞은 파일을 골라 씁니다. (큰 사진을 크게 줄일 때 생기는 계단 현상 방지)
+function photoSrcSet(member: Member) {
+  if (!member.photo || !member.photoSizes?.length) return undefined;
+  const dot = member.photo.lastIndexOf(".");
+  const base = member.photo.slice(0, dot);
+  const ext = member.photo.slice(dot);
+  return [...member.photoSizes.map((w) => `${base}-${w}${ext} ${w}w`), `${member.photo} 1200w`].join(", ");
+}
+
 // 구성원 사진. 파일이 없거나 불러오지 못하면 로고를 대신 보여 줍니다.
-export function MemberPhoto({ member, className = "" }: { member: Member; className?: string }) {
+// sizes: 화면에 표시되는 사진의 가로 크기 (브라우저가 알맞은 파일을 고르는 데 씀)
+export function MemberPhoto({ member, sizes, className = "" }: { member: Member; sizes: string; className?: string }) {
   const [broken, setBroken] = useState(false);
   if (!member.photo || broken) {
     return (
@@ -20,9 +31,11 @@ export function MemberPhoto({ member, className = "" }: { member: Member; classN
     <img
       className={`member-photo ${className}`}
       src={member.photo}
+      srcSet={photoSrcSet(member)}
+      sizes={sizes}
       alt={`${member.name} ${member.role}`}
-      width={640}
-      height={800}
+      width={1200}
+      height={1500}
       loading="lazy"
       onError={() => setBroken(true)}
       // 페이지가 준비되기 전에 이미 실패한 사진도 찾아서 로고로 바꿉니다.
@@ -46,7 +59,7 @@ export function MemberCards({ members }: { members: Member[] }) {
       {members.map((member) => (
         <li key={member.id}>
           <Link href={`/members/#${member.id}`} className="member-card-link">
-            <MemberPhoto member={member} />
+            <MemberPhoto member={member} sizes="(max-width: 640px) 31vw, (max-width: 1180px) 23vw, 145px" />
             <span className="member-card-role">{member.role}</span>
             <strong>{member.name}</strong>
           </Link>
@@ -61,7 +74,7 @@ export function MemberProfile({ member }: { member: Member }) {
   return (
     <article className="member-profile" id={member.id}>
       <div className="member-profile-photo">
-        <MemberPhoto member={member} />
+        <MemberPhoto member={member} sizes="(max-width: 640px) 300px, (max-width: 860px) 270px, (max-width: 1180px) 300px, 360px" />
       </div>
       <div className="member-profile-body">
         <p className="member-profile-role">{member.role}</p>

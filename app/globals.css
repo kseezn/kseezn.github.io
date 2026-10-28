@@ -1520,7 +1520,7 @@ button {
   top: 69px;
   z-index: 40;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--white);
 }
 .office-jump-inner {
   display: flex;
@@ -1579,8 +1579,8 @@ button {
 /* 구성원 페이지: 한 사람 소개 */
 .member-profile {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 48px;
   padding: 40px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -1703,10 +1703,14 @@ button {
   .member-cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+  .member-profile {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 32px;
+  }
 }
 @media (max-width: 860px) {
   .member-profile {
-    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-columns: 270px minmax(0, 1fr);
     gap: 24px;
   }
   .member-profile-photo {
@@ -1728,7 +1732,7 @@ button {
     grid-template-columns: minmax(0, 1fr);
   }
   .member-profile-photo {
-    max-width: 200px;
+    max-width: 300px;
   }
   .member-profile-name {
     font-size: 1.625rem;

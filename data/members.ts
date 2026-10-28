@@ -12,7 +12,10 @@ export type Member = {
   name: string;
   role: string;
   office: "cheonan" | "asan" | "seoul"; // data/site.ts의 offices id
-  photo?: string;
+  photo?: string; // 가로 1200px 사진. 예: "/members/lee-cheol.jpg"
+  // 작게 줄인 사진의 가로 크기들. 예: [300, 450, 600, 900]이면 lee-cheol-300.jpg … lee-cheol-900.jpg가 있어야 합니다.
+  // 없으면 1200px 사진 하나만 씁니다.
+  photoSizes?: number[];
   intro?: string; // 한 줄 소개 (있을 때만)
   highlights: string[]; // 現)·前) 요약
   sections: MemberSection[];
@@ -25,6 +28,7 @@ export const members: Member[] = [
     role: "대표 노무사",
     office: "cheonan",
     photo: "/members/lee-cheol.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [
       "現) 노무법인 현명 대표노무사",
       "現) 삼성화재 주식회사 자문노무사",
@@ -120,6 +124,7 @@ export const members: Member[] = [
     role: "부대표 노무사",
     office: "cheonan",
     photo: "/members/jung-sujin.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [
       "現) 중소기업중앙회 비즈니스지원단 전문위원",
       "現) 공동주택 경비원 근무방식 개편 컨설턴트",
@@ -162,6 +167,7 @@ export const members: Member[] = [
     role: "공인 노무사",
     office: "cheonan",
     photo: "/members/park-dongju.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [],
     sections: [
       {
@@ -183,6 +189,7 @@ export const members: Member[] = [
     role: "공인 노무사",
     office: "cheonan",
     photo: "/members/oh-eunseo.jpg",
+    photoSizes: [300, 450, 600, 900],
     intro: "인적자원관리(HRM) 전문가",
     highlights: [],
     sections: [
@@ -206,6 +213,7 @@ export const members: Member[] = [
     role: "아산 지사 대표 노무사",
     office: "asan",
     photo: "/members/park-sehwa.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [
       "現) 아시아행정사 대표",
       "現) 대전지방검찰청 천안지원 형사조정위원",
@@ -220,6 +228,7 @@ export const members: Member[] = [
     role: "서울 지사 대표 노무사",
     office: "seoul",
     photo: "/members/woo-jaewon.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [
       "現) 국가권익위원회 전문 상담위원",
       "現) 서울대 창업 멘토링 사업 전문 멘토",
@@ -234,6 +243,7 @@ export const members: Member[] = [
     role: "책임 노무사",
     office: "seoul",
     photo: "/members/yoon-juhye.jpg",
+    photoSizes: [300, 450, 600, 900],
     highlights: [
       "現) 경기도사회적경제원 외부 전문위원",
       "前) 문화체육관광부 산하 공공기관",
