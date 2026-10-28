@@ -9,8 +9,10 @@ import {
   ServiceIcon,
 } from "@/components/Common";
 import LogoMark from "@/components/LogoMark";
+import { MemberCards } from "@/components/Members";
 import VideoGrid from "@/components/VideoGrid";
-import { coreSlugs, hero, members, services, site, strengths } from "@/data/site";
+import { members } from "@/data/members";
+import { coreSlugs, hero, services, site, strengths } from "@/data/site";
 import { getPosts } from "@/lib/blog";
 import { getVideos } from "@/lib/youtube";
 
@@ -19,7 +21,6 @@ export default function HomePage() {
   const coreServices = coreSlugs
     .map((slug) => services.find((service) => service.slug === slug))
     .filter((service) => service !== undefined);
-  const leader = members[0]; // 구성원이 있으면 첫 번째 사람을 대표로 소개
 
   return (
     <>
@@ -134,27 +135,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. 대표·구성원 소개 */}
+      {/* 5. 구성원 소개 (data/members.ts) */}
       <section className="section section-muted">
-        <div className="container profile">
+        <div className="container">
           <SectionHeading
             eyebrow="MEMBERS"
-            title={leader ? `${leader.name} ${leader.role}` : "함께하는 노무법인 현명"}
+            title="함께하는 노무법인 현명"
+            description="현명한 노무 전문팀과 신뢰할 수 있는 전문가 협업 시스템으로 함께합니다."
             align="center"
           />
-          <p className="profile-text">
-            {leader?.bio || "사업장의 고민과 현장의 목소리를 듣고, 필요한 해결 방향을 함께 고민합니다."}
-          </p>
-          {leader && (
-            <ul className="credentials">
-              {leader.credentials.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
-          <Link className="more" href="/members/">
-            구성원 전체 보기 →
-          </Link>
+          <MemberCards members={members} />
+          <div className="center">
+            <Link className="more" href="/members/">
+              구성원 전체 보기 →
+            </Link>
+          </div>
         </div>
       </section>
 

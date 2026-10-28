@@ -1466,3 +1466,278 @@ button {
     transition: none;
   }
 }
+
+/* ── 구성원 ── */
+.member-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background: var(--surface);
+  object-fit: cover;
+  object-position: center top;
+}
+.member-photo-empty {
+  display: grid;
+  place-items: center;
+  color: #9fb0c9;
+}
+
+/* 메인 화면 구성원 카드 */
+.member-cards {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+.member-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+.member-card-link .member-photo {
+  margin-bottom: 10px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+}
+.member-card-link:hover .member-photo {
+  border-color: var(--navy);
+}
+.member-card-role {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.member-card-link strong {
+  color: var(--navy);
+  font-size: 1.0625rem;
+  font-weight: 800;
+}
+
+/* 구성원 페이지: 사무실 바로가기 (메뉴 아래에 붙어 따라옴) */
+.office-jump {
+  position: sticky;
+  top: 69px;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.97);
+}
+.office-jump-inner {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+.office-jump a {
+  padding: 7px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.office-jump a:hover {
+  border-color: var(--navy);
+}
+.office-jump a span {
+  margin-left: 4px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* 구성원 페이지: 사무실 제목 */
+.member-office,
+.member-profile {
+  scroll-margin-top: 64px; /* 사무실 바로가기 줄에 가려지지 않게 */
+}
+.member-office-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--navy);
+}
+.member-office-head h2 {
+  color: var(--navy);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 800;
+}
+.member-office-head p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+.member-office-head a {
+  margin-left: 10px;
+  color: var(--blue);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 구성원 페이지: 한 사람 소개 */
+.member-profile {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+.member-profile:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.member-profile-photo {
+  position: sticky;
+  top: 150px; /* 긴 이력을 읽는 동안 사진이 따라옵니다 */
+  align-self: start;
+}
+.member-profile-photo .member-photo {
+  border: 1.5px solid var(--line);
+}
+.member-profile-role {
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+.member-profile-name {
+  margin-top: 2px;
+  color: var(--navy);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.member-profile-intro {
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.member-highlights {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+.member-highlights li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-weight: 600;
+}
+.mark {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 26px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.mark-past {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+}
+.member-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin-top: 28px;
+}
+.member-section h4 {
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+.member-section li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+.member-section li + li {
+  margin-top: 4px;
+}
+.member-section li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+/* 짧은 항목(자격, 강의 기관)은 한 줄에 이어서 */
+.member-section.is-compact {
+  grid-column: 1 / -1;
+}
+.member-section.is-compact ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.member-section.is-compact li {
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 0.8125rem;
+}
+.member-section.is-compact li + li {
+  margin-top: 0;
+}
+.member-section.is-compact li::before {
+  display: none;
+}
+.section-muted .member-section.is-compact li {
+  background: var(--white);
+}
+@media (max-width: 1180px) {
+  .member-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  .member-profile {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+  }
+  .member-profile-photo {
+    position: static;
+  }
+  .member-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .member-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .member-card-role {
+    font-size: 0.75rem;
+  }
+  .member-profile {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .member-profile-photo {
+    max-width: 200px;
+  }
+  .member-profile-name {
+    font-size: 1.625rem;
+  }
+  .office-jump-inner {
+    gap: 6px;
+  }
+  .office-jump a {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+}

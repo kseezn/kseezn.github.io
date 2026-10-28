@@ -1,7 +1,7 @@
 // 여러 페이지에서 함께 쓰는 화면 조각들입니다.
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
-import { faqs, members, offices, services, site, type Service } from "@/data/site";
+import { faqs, offices, services, site, type Service } from "@/data/site";
 import type { BlogPost } from "@/lib/blog";
 import { sectionLabels } from "@/lib/labels";
 import { formatDate } from "@/lib/format";
@@ -121,31 +121,6 @@ export function ServiceIcon({ slug }: { slug: string }) {
     <svg {...common}>
       <rect x="4" y="4" width="16" height="16" rx="4" />
     </svg>
-  );
-}
-
-// 구성원 카드 목록
-export function MemberGrid() {
-  return (
-    <div className="member-grid">
-      {members.map((member) => (
-        <article className="member-card" key={member.name}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          {member.image && <img src={member.image} alt={member.name} width="240" height="300" />}
-          <h2>
-            {member.name} <small>{member.role}</small>
-          </h2>
-          <p>{member.bio}</p>
-          {member.credentials.length > 0 && (
-            <ul>
-              {member.credentials.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
-        </article>
-      ))}
-    </div>
   );
 }
 

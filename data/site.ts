@@ -142,17 +142,6 @@ export const faqs = [
   },
 ];
 
-export type Member = {
-  name: string;
-  role: string;
-  bio: string;
-  credentials: string[];
-  image?: string; // public 폴더 기준 경로. 예: "/members/hong.jpg"
-};
-
-// 구성원을 채우면 첫 번째 사람이 메인 화면 대표 소개에 나옵니다.
-export const members: Member[] = [];
-
 export type Office = {
   id: string; // 주소 끝에 붙는 영문 이름 (/location/#cheonan)
   name: string;
