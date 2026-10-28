@@ -420,14 +420,15 @@ button {
 .strengths-grid strong {
   display: block;
   color: var(--navy);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.775rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
 }
 .strengths-grid p {
   margin-top: 4px;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: 1.075rem;
+  font-weight: 600;
 }
 
 /* ── 구역 공통 ── */

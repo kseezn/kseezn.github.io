@@ -29,10 +29,10 @@ export const hero = {
 
 // 첫 화면 아래 흰색 4칸. 실적 숫자가 생기기 전까지는 업무 키워드를 씁니다.
 export const strengths = [
-  { value: "인사노무", label: "사업장 운영에 필요한 자문" },
-  { value: "노동사건", label: "쟁점과 사실관계 검토" },
-  { value: "컨설팅", label: "사업장에 맞는 제도 정비" },
-  { value: "현명 소식", label: "블로그에서 전하는 이야기" },
+  { value: "10000건+", label: "누적 진행 사건" },
+  { value: "90%", label: "사건 해결률" },
+  { value: "97%", label: "높은 만족도" },
+  { value: "200+", label: "파트너사" },
 ];
 
 // 업무분야 내용은 data/services.ts에 있습니다. (다른 파일들이 여기서 불러올 수 있게 연결만 해 둠)
