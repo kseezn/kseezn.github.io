@@ -2392,9 +2392,7 @@ button {
 .logo-marquee.is-reverse .logo-track {
   animation-direction: reverse;
 }
-.logo-rows:hover .logo-track {
-  animation-play-state: paused;
-}
+
 .logo-track li {
   display: grid;
   flex: none;
