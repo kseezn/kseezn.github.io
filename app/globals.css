@@ -1846,3 +1846,506 @@ button {
     font-size: 0.875rem;
   }
 }
+
+/* ── 업무분야 ── */
+/* 메뉴 아래에 붙어 따라오는 탭 (업무분야 묶음, 같은 묶음의 업무) */
+.sub-tabs {
+  position: sticky;
+  top: 69px;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+.sub-tabs-inner {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+.sub-tabs a {
+  padding: 7px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.sub-tabs a:hover {
+  border-color: var(--navy);
+}
+.sub-tabs a[aria-current="page"] {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+.sub-tabs .sub-tabs-all {
+  border-color: transparent;
+  color: var(--muted);
+}
+.service-group {
+  scroll-margin-top: 64px; /* 탭 줄에 가려지지 않게 */
+}
+
+/* 업무분야 페이지: 왼쪽 묶음 제목 + 오른쪽 업무 카드 2열 */
+.service-group-inner {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 48px;
+}
+.service-group-head {
+  align-self: start;
+  position: sticky;
+  top: 150px;
+}
+.service-group-head h2 {
+  margin-top: 6px;
+  color: var(--navy);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+.service-group-head p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+.service-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.service-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.service-tile:hover {
+  border-color: var(--navy);
+}
+.service-tile-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: var(--white);
+}
+.service-tile h3 {
+  margin-top: 18px;
+  color: var(--navy);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.service-tile p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+.service-tile .more {
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 0.9375rem;
+}
+
+/* 업무 상세: 소개 + 이런 경우 상담하세요 */
+.service-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+.service-intro-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: var(--white);
+}
+.service-intro h2 {
+  margin-top: 6px;
+  color: var(--navy);
+  font-size: clamp(1.625rem, 3.2vw, 2.125rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+.service-intro p {
+  margin-top: 16px;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.service-intro .tags {
+  margin-top: 20px;
+}
+.service-checks {
+  padding: 30px;
+  border-radius: var(--radius);
+  background: var(--navy-deep);
+  color: var(--white);
+}
+.service-checks h3 {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.service-checks li {
+  position: relative;
+  margin-top: 14px;
+  padding-left: 32px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+/* 체크 표시: 둥근 사각형 안에 선 */
+.service-checks li::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--sky);
+  border-radius: 6px;
+}
+.service-checks li::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid var(--sky);
+  border-bottom: 2px solid var(--sky);
+  transform: rotate(45deg);
+}
+
+/* 업무 상세: 세부 업무 카드 */
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.area-card {
+  padding: 26px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.area-num {
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.area-card h3 {
+  margin-top: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.area-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* 업무 상세: 진행 절차 (번호 원을 선으로 이음) */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(var(--steps, 4), minmax(0, 1fr));
+  gap: 20px;
+}
+.flow li {
+  position: relative;
+}
+.flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 60px;
+  right: -12px;
+  height: 2px;
+  background: var(--line);
+}
+.flow-num {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.flow h3 {
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.flow p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* 업무 상세: 현명과 함께하는 이유 */
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.reason-card {
+  padding: 28px 26px;
+  border-top: 3px solid var(--navy);
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--white);
+}
+.reason-num {
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+.reason-card h3 {
+  margin-top: 8px;
+  color: var(--navy);
+  font-size: 1.1875rem;
+  font-weight: 800;
+}
+.reason-card p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 1180px) {
+  .service-group-inner {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 32px;
+  }
+  .service-intro {
+    gap: 36px;
+  }
+}
+@media (max-width: 860px) {
+  .service-group-inner,
+  .service-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service-group-head {
+    position: static;
+  }
+  .area-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .reason-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* 절차는 세로로: 번호 원을 왼쪽에 두고 세로선으로 이음 */
+  .flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .flow li {
+    padding: 0 0 26px 66px;
+    min-height: 74px;
+  }
+  .flow li:last-child {
+    padding-bottom: 0;
+  }
+  .flow li:not(:last-child)::after {
+    top: 56px;
+    bottom: 6px;
+    left: 23px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .flow-num {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+@media (max-width: 640px) {
+  .service-tiles,
+  .area-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service-tile,
+  .area-card {
+    padding: 22px;
+  }
+  .service-checks {
+    padding: 24px 22px;
+  }
+  .service-intro p {
+    font-size: 1rem;
+  }
+  .sub-tabs-inner {
+    gap: 6px;
+  }
+  .sub-tabs a {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+}
+
+/* ── 오시는 길 (사무실을 아래로 나열) ── */
+.office-section {
+  scroll-margin-top: 64px; /* 바로가기 탭 줄에 가려지지 않게 */
+}
+.office-head {
+  margin-bottom: 28px;
+  text-align: center;
+}
+.office-head .eyebrow {
+  letter-spacing: 0.3em;
+}
+.office-head h2 {
+  margin-top: 8px;
+  color: var(--navy);
+  font-size: clamp(1.75rem, 3.4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+/* 지도와 안내칸을 한 덩어리로 묶어 폭을 똑같이 맞춥니다 */
+.office-panel {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(11, 31, 64, 0.1);
+}
+.office-panel .map-box {
+  aspect-ratio: 16 / 7;
+}
+.office-panel-info {
+  padding: 34px 24px 36px;
+  background: var(--navy-deep);
+  color: var(--white);
+  text-align: center;
+}
+.office-panel-address {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.office-panel-detail {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.office-panel-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 24px;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.office-panel-contact b {
+  margin-right: 4px;
+  color: var(--sky);
+  font-weight: 800;
+}
+.office-panel-contact a {
+  color: var(--white);
+}
+.office-panel-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.office-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.office-button:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 지도 위 사무실 위치: 남색 점 + 퍼져 나가는 물결 두 겹 */
+.map-marker {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.map-marker span {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  pointer-events: none;
+  animation: marker-wave 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.map-marker span + span {
+  animation-delay: 0.45s;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+@keyframes marker-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(5.5);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-marker span {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .office-panel .map-box {
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (max-width: 640px) {
+  .office-head {
+    margin-bottom: 20px;
+  }
+  .office-panel-info {
+    padding: 26px 18px 28px;
+  }
+  .office-panel-contact {
+    flex-direction: column;
+    align-items: center;
+  }
+  .office-button {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+}

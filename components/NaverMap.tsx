@@ -9,6 +9,7 @@ type NaverMaps = {
   LatLng: new (lat: number, lng: number) => unknown;
   Map: new (element: HTMLElement, options: object) => unknown;
   Marker: new (options: object) => unknown;
+  Point: new (x: number, y: number) => unknown;
   ZoomControlStyle: { SMALL: unknown };
   Position: { TOP_LEFT: unknown };
   Service?: {
@@ -60,6 +61,9 @@ function findPosition(maps: NaverMaps, office: Office): Promise<{ lat: number; l
   });
 }
 
+// 지도 위 표시: 가운데 점 + 물결 두 겹
+const MARKER_HTML = '<div class="map-marker"><span></span><span></span></div>';
+
 export default function NaverMap({ office }: { office: Office }) {
   const mapRef = useRef<HTMLDivElement>(null);
   // off: Client ID 없음 / loading: 불러오는 중 / ready: 지도 표시 / failed: 실패
@@ -87,7 +91,13 @@ export default function NaverMap({ office }: { office: Office }) {
           zoomControlOptions: { style: maps.ZoomControlStyle.SMALL, position: maps.Position.TOP_LEFT },
           scaleControl: false,
         });
-        new maps.Marker({ position, map, title: office.name });
+        // 기본 핀 대신 퍼져 나가는 물결 효과가 있는 남색 점 (모양은 globals.css의 .map-marker)
+        new maps.Marker({
+          position,
+          map,
+          title: office.name,
+          icon: { content: MARKER_HTML, anchor: new maps.Point(9, 9) },
+        });
         setStatus("ready");
       })
       .catch(() => {
@@ -138,13 +148,13 @@ export default function NaverMap({ office }: { office: Office }) {
       )}
       {(status === "off" || status === "failed") && (
         <a className="map-placeholder" href={link} target="_blank" rel="noopener noreferrer">
-          <span className="map-pin" aria-hidden="true" />
+          <span className="map-marker" aria-hidden="true">
+            <span />
+            <span />
+          </span>
           <span>네이버 지도에서 위치 보기 ↗</span>
         </a>
       )}
-      <a className="map-route" href={link} target="_blank" rel="noopener noreferrer">
-        길찾기 ↗
-      </a>
     </div>
   );
 }

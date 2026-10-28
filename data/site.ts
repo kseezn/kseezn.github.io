@@ -35,93 +35,8 @@ export const strengths = [
   { value: "현명 소식", label: "블로그에서 전하는 이야기" },
 ];
 
-export type Service = {
-  slug: string; // 주소에 쓰이는 영문 이름 → /services/slug/
-  title: string;
-  summary: string;
-  lead: string;
-  tasks: string[];
-};
-
-// 업무분야 10개 (초안). 현명이 실제로 하는 업무에 맞게 고쳐 주세요.
-export const services: Service[] = [
-  {
-    slug: "industrial-safety",
-    title: "산업안전·중대재해",
-    summary: "사업장의 안전관리 과제와 대응 방향을 검토합니다.",
-    lead: "안전한 일터를 위한 준비",
-    tasks: ["안전보건관리체계 점검", "사고 발생 시 대응 방향 검토", "관련 규정과 운영 절차 정비"],
-  },
-  {
-    slug: "hr-advisory",
-    title: "인사·노무 자문",
-    summary: "채용부터 퇴직까지 인사노무 운영을 함께 살펴봅니다.",
-    lead: "일상적인 노무관리의 든든한 기반",
-    tasks: ["근로계약·취업규칙 검토", "임금·근로시간 관련 자문", "인사 운영상 쟁점 검토"],
-  },
-  {
-    slug: "payroll",
-    title: "급여 아웃소싱",
-    summary: "급여 및 인사자료 관리 업무를 지원합니다.",
-    lead: "정확한 급여관리의 시작",
-    tasks: ["급여자료 검토", "급여대장·명세서 관리", "4대보험 관련 업무 협의"],
-  },
-  {
-    slug: "case-representation",
-    title: "노동사건 대리",
-    summary: "사건의 사실관계와 쟁점을 정리하고 대응합니다.",
-    lead: "사실관계에 기초한 사건 대응",
-    tasks: ["해고·징계 관련 사건 검토", "임금체불 관련 사건 검토", "주장·증거자료 정리"],
-  },
-  {
-    slug: "workplace-harassment",
-    title: "직장 내 괴롭힘 조사",
-    summary: "조사 절차와 사실관계 확인, 후속 조치를 지원합니다.",
-    lead: "공정한 조사를 위한 절차와 준비",
-    tasks: ["조사계획 수립", "당사자·참고인 면담", "조사보고서 및 후속 조치 검토"],
-  },
-  {
-    slug: "hr-consulting",
-    title: "HR 컨설팅",
-    summary: "사업장 특성에 맞는 인사제도와 규정을 정비합니다.",
-    lead: "조직에 맞는 인사제도 설계",
-    tasks: ["취업규칙·인사규정 정비", "임금·평가체계 검토", "제도 운영 개선"],
-  },
-  {
-    slug: "risk-assessment",
-    title: "위험성평가",
-    summary: "현장의 유해·위험요인과 개선 과제를 살펴봅니다.",
-    lead: "위험요인 확인부터 개선까지",
-    tasks: ["현장 현황과 자료 확인", "위험요인 검토", "개선 과제 정리"],
-  },
-  {
-    slug: "sanjae-center",
-    title: "산재보상",
-    summary: "재해 경위와 자료를 확인하고 보상 절차를 검토합니다.",
-    lead: "산재보상을 위한 자료와 절차",
-    tasks: ["재해 경위 파악", "업무 관련 자료 검토", "산재 신청 및 불승인 대응 검토"],
-  },
-  {
-    slug: "education",
-    title: "교육·출강",
-    summary: "대상과 목적에 맞는 인사노무 교육을 준비합니다.",
-    lead: "현장에서 활용하는 인사노무 교육",
-    tasks: ["교육 주제와 대상 협의", "교육안 구성", "일정·진행 방식 협의"],
-  },
-  {
-    slug: "labor-inspection",
-    title: "근로감독 대응",
-    summary: "노무관리 자료를 점검하고 시정 과제를 정리합니다.",
-    lead: "자료 점검부터 개선까지",
-    tasks: ["근로계약·임금자료 확인", "근태 및 인사자료 점검", "개선 사항 및 대응 방향 정리"],
-  },
-];
-
-// 메인 "주요 업무" 카드 3개에 보여 줄 업무 (위 services의 slug)
-export const coreSlugs = ["industrial-safety", "sanjae-center", "workplace-harassment"];
-
-// 업무 상세 페이지의 진행 절차
-export const processSteps = ["문의 및 일정 협의", "현황·자료 확인", "업무 범위 협의", "진행 및 결과 안내"];
+// 업무분야 내용은 data/services.ts에 있습니다. (다른 파일들이 여기서 불러올 수 있게 연결만 해 둠)
+export { coreSlugs, services, type Service } from "@/data/services";
 
 export const faqs = [
   {
@@ -146,6 +61,7 @@ export type Office = {
   id: string; // 주소 끝에 붙는 영문 이름 (/location/#cheonan)
   name: string;
   phone: string;
+  fax?: string; // 있을 때만 오시는 길 페이지에 표시
   address: string; // 지도에서 위치를 찾을 도로명 주소 (건물 번호까지만)
   detail: string; // 층·호수·건물명
   lat?: number; // 지도 위치가 조금 어긋나면 위도·경도를 직접 넣으세요.
@@ -159,6 +75,7 @@ export const offices: Office[] = [
     id: "cheonan",
     name: "천안 본사",
     phone: "041-556-5027",
+    fax: "041-557-5027",
     address: "충청남도 천안시 동남구 청수14로 102",
     detail: "6층 606·607호 (청당동, 에이스법조타워)",
     lat: 36.785563,
