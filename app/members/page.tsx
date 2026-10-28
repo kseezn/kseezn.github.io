@@ -2,16 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactBand, PageHero } from "@/components/Common";
 import { MemberProfile } from "@/components/Members";
+import { StaffList } from "@/components/StaffList";
 import { members } from "@/data/members";
 import { offices } from "@/data/site";
+import { staff } from "@/data/staff";
 
 export const metadata: Metadata = { title: "구성원" };
 
 export default function MembersPage() {
-  // 사무실 순서대로 구성원을 묶습니다. (구성원이 없는 사무실은 건너뜀)
+  // 사무실 순서대로 노무사와 직원을 묶습니다. (아무도 없는 사무실은 건너뜀)
   const groups = offices
-    .map((office) => ({ office, people: members.filter((member) => member.office === office.id) }))
-    .filter((group) => group.people.length > 0);
+    .map((office) => ({
+      office,
+      people: members.filter((member) => member.office === office.id),
+      crew: staff.filter((person) => person.office === office.id),
+    }))
+    .filter((group) => group.people.length + group.crew.length > 0);
 
   return (
     <>
@@ -23,15 +29,15 @@ export default function MembersPage() {
       {/* 사무실 바로가기 */}
       <nav className="office-jump" aria-label="사무실별 구성원 바로가기">
         <div className="container office-jump-inner">
-          {groups.map(({ office, people }) => (
+          {groups.map(({ office }) => (
             <a key={office.id} href={`#office-${office.id}`}>
-              {office.name} <span>{people.length}명</span>
+              {office.name}
             </a>
           ))}
         </div>
       </nav>
 
-      {groups.map(({ office, people }, index) => (
+      {groups.map(({ office, people, crew }, index) => (
         <section
           key={office.id}
           id={`office-${office.id}`}
@@ -45,11 +51,14 @@ export default function MembersPage() {
                 <Link href={`/location/#${office.id}`}>오시는 길 →</Link>
               </p>
             </header>
-            <div className="member-profiles">
-              {people.map((member) => (
-                <MemberProfile member={member} key={member.id} />
-              ))}
-            </div>
+            {people.length > 0 && (
+              <div className="member-profiles">
+                {people.map((member) => (
+                  <MemberProfile member={member} key={member.id} />
+                ))}
+              </div>
+            )}
+            {crew.length > 0 && <StaffList people={crew} />}
           </div>
         </section>
       ))}
