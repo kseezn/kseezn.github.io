@@ -3,7 +3,7 @@
 
 export const site = {
   name: "노무법인 현명",
-  englishName: "HYEONMYEONG",
+  englishName: "WISE LABOR LAW FIRM",
   blog: "https://blog.naver.com/nomusa91",
   youtube: "https://www.youtube.com/@wiselabor",
   phone: "041-556-5027", // 대표전화 (천안 본사)

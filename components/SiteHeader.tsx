@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import BrandName from "@/components/BrandName";
 import LogoMark from "@/components/LogoMark";
 import { services, site } from "@/data/site";
 
@@ -108,11 +109,8 @@ export default function SiteHeader() {
       >
         <div className="container header-inner">
           <Link href="/" className="brand" onClick={closeAll} aria-label={`${site.name} 홈`}>
-            <LogoMark size={38} />
-            <span className="brand-text">
-              <b>{site.name}</b>
-              <small>{site.englishName}</small>
-            </span>
+            <LogoMark size={50} />
+            <BrandName />
           </Link>
 
           <button

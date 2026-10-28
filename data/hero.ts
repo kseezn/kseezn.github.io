@@ -13,7 +13,7 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     image: "/hero/01.jpg",
-    eyebrow: "HYEONMYEONG LABOR LAW FIRM",
+    eyebrow: "WISE LABOR LAW FIRM",
     title: [hero.title[0], hero.title[1]],
     description: hero.description,
     link: { href: "/contact/", label: "상담 문의하기" },

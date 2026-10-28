@@ -1,5 +1,6 @@
 // 여러 페이지에서 함께 쓰는 화면 조각들입니다.
 import Link from "next/link";
+import BrandName from "@/components/BrandName";
 import LogoMark from "@/components/LogoMark";
 import { faqs, offices, services, site, type Service } from "@/data/site";
 import type { BlogPost } from "@/lib/blog";
@@ -78,51 +79,8 @@ export function ServiceCards({ list = services }: { list?: Service[] }) {
   );
 }
 
-// 핵심 업무 카드에 쓰는 선 아이콘 (로고와 같은 둥근 선 스타일)
-export function ServiceIcon({ slug }: { slug: string }) {
-  const common = {
-    width: 28,
-    height: 28,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.8,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  };
-  if (slug === "industrial-safety") {
-    return (
-      <svg {...common}>
-        <path d="M4 17h16M6 17v-2a6 6 0 0 1 12 0v2M10 9.5V7h4v2.5" />
-        <rect x="3" y="17" width="18" height="3" rx="1.5" />
-      </svg>
-    );
-  }
-  if (slug === "sanjae-center") {
-    return (
-      <svg {...common}>
-        <rect x="4" y="4" width="16" height="16" rx="4" />
-        <path d="M12 8.5v7M8.5 12h7" />
-      </svg>
-    );
-  }
-  if (slug === "workplace-harassment") {
-    return (
-      <svg {...common}>
-        <circle cx="9" cy="9" r="3" />
-        <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
-        <rect x="14" y="4" width="7" height="6" rx="2" />
-        <path d="M16 12l1.5-2" />
-      </svg>
-    );
-  }
-  return (
-    <svg {...common}>
-      <rect x="4" y="4" width="16" height="16" rx="4" />
-    </svg>
-  );
-}
+// 업무 아이콘은 components/ServiceIcons.tsx에 있습니다. (메인 화면이 여기서 불러올 수 있게 연결만 해 둠)
+export { ServiceIcon } from "@/components/ServiceIcons";
 
 // 분류 표시 + 제목 + 날짜만 있는 짧은 글 목록 (메인의 법인 소식, HR뉴스)
 export function NewsRows({ posts }: { posts: BlogPost[] }) {
@@ -200,9 +158,9 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <Link className="footer-brand" href="/">
-            <LogoMark size={34} />
-            {site.name}
+            <Link className="footer-brand" href="/">
+            <LogoMark size={48} />
+            <BrandName />
           </Link>
           <p>
             {site.representative && <>대표 {site.representative}</>}
