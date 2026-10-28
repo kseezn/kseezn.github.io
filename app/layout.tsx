@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/Common";
+import ScrollReveal from "@/components/ScrollReveal";
 import SiteHeader from "@/components/SiteHeader";
 import { site } from "@/data/site";
 import "./globals.css";

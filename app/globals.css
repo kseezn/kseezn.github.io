@@ -2349,3 +2349,749 @@ button {
     font-size: 0.875rem;
   }
 }
+
+/* 지도 안의 확대·축소 버튼이 위쪽 메뉴바 위로 올라오지 않게, 지도 안쪽 층을 지도 상자 안에 가둡니다 */
+.map-box {
+  isolation: isolate;
+}
+
+/* ── 고객사 · 수상 및 위촉 (메인 화면, 남색 배경) ── */
+.trust-band {
+  overflow: hidden;
+  background: var(--navy-deep);
+  color: var(--white);
+}
+.trust-band .eyebrow {
+  color: var(--sky);
+}
+.trust-band .section-heading h2 {
+  color: var(--white);
+}
+.trust-band .section-heading p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* 로고 줄: 끝없이 옆으로 흐르고, 마우스를 올리면 멈춥니다 */
+.logo-rows {
+  display: grid;
+  gap: 14px;
+  /* 양 끝을 흐리게 */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-marquee {
+  overflow: hidden;
+}
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: logo-flow 70s linear infinite;
+}
+.logo-marquee.is-reverse .logo-track {
+  animation-direction: reverse;
+}
+.logo-rows:hover .logo-track {
+  animation-play-state: paused;
+}
+.logo-track li {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 190px;
+  height: 84px;
+  margin-right: 14px; /* 간격은 margin으로 (한 바퀴 길이를 정확히 반으로 맞추기 위해) */
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--white);
+}
+.logo-track img {
+  max-width: 100%;
+  max-height: 46px;
+  object-fit: contain;
+}
+@keyframes logo-flow {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 수상 및 위촉: 옆으로 넘기는 목록 */
+.awards {
+  margin-top: 80px;
+}
+.awards-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.awards-head .section-heading {
+  margin-bottom: 28px;
+}
+.awards-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.awards-nav button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.awards-nav button:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+}
+.awards-track {
+  display: grid;
+  grid-auto-columns: calc((100% - 5 * 16px) / 6); /* PC에서 한 화면에 6장 */
+  grid-auto-flow: column;
+  gap: 16px;
+  padding-bottom: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.awards-track::-webkit-scrollbar {
+  display: none;
+}
+.awards-track li {
+  scroll-snap-align: start;
+}
+.award-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: zoom-in;
+}
+.award-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 660 / 934;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s;
+}
+.award-card:hover img,
+.award-card:focus-visible img {
+  transform: translateY(-4px);
+}
+.award-title {
+  display: block;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+}
+
+/* 크게 보기 창 */
+.award-viewer {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.award-viewer::backdrop {
+  background: rgba(8, 23, 48, 0.88);
+}
+.award-viewer figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 56px 72px;
+  pointer-events: none; /* 사진 바깥(빈 곳)을 누르면 닫히도록 */
+}
+.award-viewer img {
+  max-width: 100%;
+  max-height: calc(100% - 40px);
+  border-radius: 6px;
+  background: var(--white);
+  pointer-events: auto;
+}
+.award-viewer figcaption {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9375rem;
+}
+.award-viewer button {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(8, 23, 48, 0.6);
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.award-viewer button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.award-viewer-close {
+  top: 16px;
+  right: 16px;
+}
+.award-viewer-prev,
+.award-viewer-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.award-viewer-prev {
+  left: 16px;
+}
+.award-viewer-next {
+  right: 16px;
+}
+html:has(.award-viewer[open]) {
+  overflow: hidden; /* 크게 보는 동안 뒤쪽 페이지가 스크롤되지 않게 */
+}
+
+@media (max-width: 1180px) {
+  .awards-track {
+    grid-auto-columns: calc((100% - 3 * 16px) / 4);
+  }
+}
+@media (max-width: 640px) {
+  .logo-track li {
+    width: 150px;
+    height: 70px;
+    margin-right: 10px;
+    padding: 12px 14px;
+  }
+  .logo-track img {
+    max-height: 38px;
+  }
+  .logo-rows {
+    gap: 10px;
+  }
+  .awards {
+    margin-top: 64px;
+  }
+  .awards-track {
+    grid-auto-columns: 44%;
+    gap: 12px;
+  }
+  .awards-nav button {
+    width: 40px;
+    height: 40px;
+  }
+  .award-viewer figure {
+    padding: 64px 12px 84px;
+  }
+  .award-viewer-prev,
+  .award-viewer-next {
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+  .award-viewer-prev {
+    left: calc(50% - 56px);
+  }
+  .award-viewer-next {
+    right: calc(50% - 56px);
+  }
+}
+/* "애니메이션 줄이기"를 켠 방문자: 흐르지 않고 줄 바꿈으로 모두 보여 줌 */
+@media (prefers-reduced-motion: reduce) {
+  .logo-rows {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .logo-track {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    animation: none;
+  }
+  .logo-track li {
+    margin-right: 0;
+  }
+  .logo-track li[aria-hidden="true"] {
+    display: none;
+  }
+  .award-card img {
+    transition: none;
+  }
+}
+
+/* ── 메인 첫 화면 (화면 전체 사진) ── */
+.landing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  height: 100svh; /* 휴대폰 주소창을 뺀 실제 화면 높이 */
+  min-height: 620px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy)); /* 사진이 없을 때의 바탕 */
+  color: var(--white);
+}
+.landing :focus-visible {
+  outline-color: var(--white);
+}
+.landing-media,
+.landing-shade,
+.landing-lines {
+  position: absolute;
+  inset: 0;
+}
+.landing-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.12);
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease;
+}
+.landing-media img.is-active {
+  opacity: 1;
+  animation: landing-zoom 9s ease-out forwards; /* 보이는 동안 천천히 당겨짐 */
+}
+@keyframes landing-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* 사진 위 남색 그늘: 글자가 있는 왼쪽을 더 진하게 */
+.landing-shade {
+  background:
+    linear-gradient(90deg, rgba(8, 23, 48, 0.9) 0%, rgba(11, 31, 64, 0.62) 50%, rgba(11, 31, 64, 0.32) 100%),
+    linear-gradient(0deg, rgba(8, 23, 48, 0.75) 0%, transparent 35%);
+}
+.landing-lines {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 24px;
+  pointer-events: none;
+}
+.landing-lines span {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.09);
+  transform-origin: top;
+  animation: landing-line 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.landing-lines span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.landing-lines span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.landing-lines span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.landing-lines span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+@keyframes landing-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.landing-inner {
+  position: relative;
+  padding-top: 68px; /* 투명 메뉴바 높이만큼 */
+}
+.landing-copy {
+  max-width: 880px;
+}
+/* 장면이 바뀔 때마다 글자가 차례로 떠오릅니다 */
+.landing-copy > * {
+  animation: landing-rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.landing-copy > :nth-child(2) {
+  animation-delay: 0.12s;
+}
+.landing-copy > :nth-child(3) {
+  animation-delay: 0.24s;
+}
+.landing-copy > :nth-child(4) {
+  animation-delay: 0.36s;
+}
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.landing-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--sky);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+.landing-eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+}
+.landing-title {
+  margin-top: 22px;
+  font-size: clamp(2.125rem, 4.6vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+.landing-title span,
+.landing-title strong {
+  display: block;
+}
+.landing-title strong {
+  font-weight: 800;
+}
+.landing-description {
+  max-width: 34em;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.75;
+}
+.landing-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 38px;
+}
+.landing-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  color: var(--white);
+  font-weight: 700;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+.landing-button:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+}
+.landing-button.is-primary {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--navy);
+}
+.landing-button.is-primary:hover {
+  background: var(--sky);
+  border-color: var(--sky);
+}
+
+/* 아래쪽: 장면 번호·진행 막대·버튼, 오른쪽 채널 */
+.landing-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.landing-pager {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+.landing-count b {
+  color: var(--white);
+  font-weight: 700;
+}
+.landing-progress {
+  position: relative;
+  width: 120px;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+}
+.landing-progress i {
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform-origin: left;
+  animation: landing-progress 7s linear both; /* HomeHero.tsx의 DURATION과 같게 */
+}
+.landing-progress i.is-paused {
+  animation: none;
+  transform: scaleX(0);
+}
+@keyframes landing-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.landing-pager button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.landing-pager button:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+}
+.landing-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.landing-channels a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.landing-channels a:hover {
+  color: var(--white);
+}
+/* 가운데 아래 SCROLL 표시: 선이 위에서 아래로 계속 흘러내림 */
+.landing-scroll {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.6875rem;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  transform: translateX(-50%);
+}
+.landing-scroll i {
+  position: relative;
+  width: 1px;
+  height: 64px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+}
+.landing-scroll i::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--white);
+  animation: landing-scroll 2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+@keyframes landing-scroll {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* ── 메인 화면 메뉴바: 맨 위에서는 투명, 내리면 흰색 ── */
+.site-header.is-home {
+  position: fixed;
+  right: 0;
+  left: 0;
+  transition:
+    background 0.35s,
+    border-color 0.35s,
+    box-shadow 0.35s;
+}
+.site-header.is-home:not(.is-overlay) {
+  box-shadow: 0 6px 24px rgba(11, 31, 64, 0.08);
+}
+.site-header.is-overlay {
+  border-bottom-color: rgba(255, 255, 255, 0.16);
+  background: transparent;
+}
+.site-header .brand,
+.site-header .nav-link,
+.site-header .nav-cta,
+.site-header .menu-button {
+  transition:
+    color 0.35s,
+    background 0.35s,
+    border-color 0.35s,
+    box-shadow 0.35s;
+}
+.is-overlay .brand,
+.is-overlay .nav-link {
+  color: var(--white);
+}
+.is-overlay .brand-text small {
+  color: rgba(255, 255, 255, 0.7);
+}
+.is-overlay .nav-link:hover,
+.is-overlay .nav-link[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+.is-overlay .nav-link[aria-current="page"],
+.is-overlay .nav-link.is-active {
+  color: var(--sky);
+}
+.is-overlay .nav-cta {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+.is-overlay .nav-cta:hover {
+  background: var(--white);
+  color: var(--navy);
+}
+.is-overlay .menu-button {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: var(--white);
+}
+.is-overlay :focus-visible {
+  outline-color: var(--white);
+}
+
+/* ── 움직임 효과 ── */
+/* 페이지를 옮길 때: 내용이 살짝 떠오르며 나타남 (app/template.tsx) */
+.page-enter {
+  animation: page-enter 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* 스크롤해서 화면에 들어올 때 (components/ScrollReveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 860px) {
+  .landing-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    bottom: 28px;
+  }
+  .landing-scroll {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .landing-shade {
+    background:
+      linear-gradient(90deg, rgba(8, 23, 48, 0.85), rgba(11, 31, 64, 0.55)),
+      linear-gradient(0deg, rgba(8, 23, 48, 0.8) 0%, transparent 40%);
+  }
+  .landing-lines span:nth-child(2),
+  .landing-lines span:nth-child(4) {
+    display: none;
+  }
+  .landing-eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+  }
+  .landing-eyebrow::before {
+    width: 24px;
+  }
+  .landing-buttons {
+    margin-top: 28px;
+  }
+  .landing-button {
+    padding: 11px 20px;
+    font-size: 0.9375rem;
+  }
+  .landing-progress {
+    width: 64px;
+  }
+  .landing-channels {
+    gap: 6px 16px;
+    font-size: 0.75rem;
+  }
+}
+/* "애니메이션 줄이기"를 켠 방문자에게는 움직임 없이 보여 줌 */
+@media (prefers-reduced-motion: reduce) {
+  .landing-media img,
+  .landing-media img.is-active,
+  .landing-lines span,
+  .landing-copy > *,
+  .landing-scroll i::after,
+  .page-enter {
+    animation: none;
+    transition: none;
+  }
+  .landing-media img.is-active {
+    transform: none;
+  }
+}

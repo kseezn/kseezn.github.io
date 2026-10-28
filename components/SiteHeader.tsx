@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import LogoMark from "@/components/LogoMark";
 import { services, site } from "@/data/site";
 
@@ -15,7 +15,10 @@ const menu: MenuItem[] = [
     href: "/services/",
     children: [
       { label: "업무분야 전체", href: "/services/" },
-      ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}/` })),
+      ...services.map((service) => ({
+        label: service.title,
+        href: `/services/${service.slug}/`,
+      })),
     ],
   },
   { label: "구성원", href: "/members/" },
@@ -41,12 +44,24 @@ const menu: MenuItem[] = [
   { label: "오시는 길", href: "/location/" },
 ];
 
+// 페이지를 조금이라도 내렸는지 (브라우저의 스크롤 위치를 지켜봅니다)
+function subscribeScroll(callback: () => void) {
+  window.addEventListener("scroll", callback, { passive: true });
+  return () => window.removeEventListener("scroll", callback);
+}
+const getScrolled = () => window.scrollY > 40;
+const getScrolledOnServer = () => false;
+
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false); // 휴대폰 메뉴 열림 여부
   const [openDropdown, setOpenDropdown] = useState<string | null>(null); // 열린 드롭다운 이름
   const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
   const current = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const scrolled = useSyncExternalStore(subscribeScroll, getScrolled, getScrolledOnServer);
+  // 메인 화면 맨 위에서는 메뉴바를 투명하게 (사진 위에 흰 글자). 내리거나 휴대폰 메뉴를 열면 흰 배경으로 바뀝니다.
+  const isHome = current === "/";
+  const overlay = isHome && !scrolled && !mobileOpen;
 
   // 메뉴 바깥을 클릭하면 드롭다운을 닫습니다.
   useEffect(() => {
@@ -64,26 +79,28 @@ export default function SiteHeader() {
 
   return (
     <>
-      {/* 맨 위 얇은 안내 줄: 운영시간·전화번호가 없으면 블로그 링크를 보여 줍니다 */}
-      <div className="topbar">
-        <div className="container topbar-inner">
-          {site.hours && <span>{site.hours}</span>}
-          {site.phone && (
-            <span>
-              대표전화 <a href={`tel:${site.phone}`}>{site.phone}</a>
-            </span>
-          )}
-          {site.fax && <span>팩스 {site.fax}</span>}
-          {!site.hours && !site.phone && (
-            <a href={site.blog} target="_blank" rel="noopener noreferrer">
-              노무법인 현명 공식 블로그 ↗
-            </a>
-          )}
+      {/* 맨 위 얇은 안내 줄: 운영시간·전화번호가 없으면 블로그 링크를 보여 줍니다. (메인 화면에서는 숨김) */}
+      {!isHome && (
+        <div className="topbar">
+          <div className="container topbar-inner">
+            {site.hours && <span>{site.hours}</span>}
+            {site.phone && (
+              <span>
+                대표전화 <a href={`tel:${site.phone}`}>{site.phone}</a>
+              </span>
+            )}
+            {site.fax && <span>팩스 {site.fax}</span>}
+            {!site.hours && !site.phone && (
+              <a href={site.blog} target="_blank" rel="noopener noreferrer">
+                노무법인 현명 공식 블로그 ↗
+              </a>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <header
-        className="site-header"
+        className={["site-header", isHome && "is-home", overlay && "is-overlay"].filter(Boolean).join(" ")}
         ref={headerRef}
         onKeyDown={(event) => {
           if (event.key === "Escape") closeAll();
@@ -142,7 +159,13 @@ export default function SiteHeader() {
                       <div className={item.children.length > 4 ? "dropdown dropdown-wide" : "dropdown"}>
                         {item.children.map((child) =>
                           child.external ? (
-                            <a key={child.href} href={child.href} target="_blank" rel="noopener noreferrer" onClick={closeAll}>
+                            <a
+                              key={child.href}
+                              href={child.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={closeAll}
+                            >
                               {child.label}
                             </a>
                           ) : (

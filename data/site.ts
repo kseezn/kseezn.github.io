@@ -86,6 +86,7 @@ export const offices: Office[] = [
     id: "asan",
     name: "아산 지사",
     phone: "041-541-9333",
+    fax: "041-541-9833",
     address: "충청남도 아산시 탕정면 이순신대로 442",
     detail: "3층 306호 (스마트타워 빌딩)",
     lat: 36.796986,

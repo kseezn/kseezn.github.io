@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BlogCards } from "@/components/BlogCards";
+import ClientsAwards from "@/components/ClientsAwards";
 import {
   ContactBand,
   FaqList,
@@ -8,11 +9,11 @@ import {
   ServiceCards,
   ServiceIcon,
 } from "@/components/Common";
-import LogoMark from "@/components/LogoMark";
+import HomeHero from "@/components/HomeHero";
 import { MemberCards } from "@/components/Members";
 import VideoGrid from "@/components/VideoGrid";
 import { members } from "@/data/members";
-import { coreSlugs, hero, services, site, strengths } from "@/data/site";
+import { coreSlugs, services, strengths } from "@/data/site";
 import { getPosts } from "@/lib/blog";
 import { getVideos } from "@/lib/youtube";
 
@@ -24,64 +25,8 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. 남색 첫 화면 */}
-      <section className="hero">
-        <LogoMark className="hero-mark" size={560} />
-        <div className="container hero-inner">
-          <p className="hero-eyebrow">
-            <span className="dot" aria-hidden="true" />
-            {hero.eyebrow}
-          </p>
-          <h1>
-            {hero.title[0]}
-            <br />
-            <strong>{hero.title[1]}</strong>
-          </h1>
-          <p className="hero-description">{hero.description}</p>
-          <p className="hero-message">{hero.message}</p>
-          <ul className="badges">
-            {hero.badges.map((badge) => (
-              <li key={badge}>{badge}</li>
-            ))}
-          </ul>
-          <div className="button-row is-center">
-            <Link className="button button-light" href="/contact/">
-              상담 문의하기
-            </Link>
-            <Link className="button button-ghost" href="/#work">
-              업무분야 보기
-            </Link>
-          </div>
-          <div className="channels">
-            <span>{site.name} 채널</span>
-            <a href={site.blog} target="_blank" rel="noopener noreferrer">
-              <b className="naver" aria-hidden="true">
-                N
-              </b>
-              네이버 블로그 ↗
-            </a>
-            <a href={site.youtube} target="_blank" rel="noopener noreferrer">
-              <b className="youtube" aria-hidden="true">
-                ▶
-              </b>
-              유튜브 ↗
-            </a>
-            {site.kakao && (
-              <a href={site.kakao} target="_blank" rel="noopener noreferrer">
-                <b className="kakao" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24">
-                    <path
-                      d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7l-1 3.8 4.3-2.9c.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </b>
-                카카오톡 상담 ↗
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
+      {/* 1. 첫 화면: 화면 전체 사진 + 큰 제목 (components/HomeHero.tsx, data/hero.ts) */}
+      <HomeHero />
 
       {/* 2. 흰색 4칸 키워드 */}
       <section className="strengths" aria-label="주요 업무 키워드">
@@ -152,6 +97,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 5-1. 고객사 로고 · 수상 및 위촉 (data/clients.ts) */}
+      <ClientsAwards />
 
       {/* 6. 인사이트 최신 글 3개 */}
       <section className="section">
