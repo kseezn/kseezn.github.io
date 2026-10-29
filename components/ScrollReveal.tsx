@@ -24,6 +24,7 @@ const SELECTOR = [
   ".member-profile",
   ".staff-cards > li",
   ".office-panel",
+  ".consult-grid > *",
   ".contact-band .container",
 ].join(", ");
 

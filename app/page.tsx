@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BlogCards } from "@/components/BlogCards";
 import ClientsAwards from "@/components/ClientsAwards";
+import ConsultSection from "@/components/ConsultSection";
 import {
   ContactBand,
   FaqList,
@@ -172,6 +173,8 @@ export default function HomePage() {
           <FaqList />
         </div>
       </section>
+      {/* 9-1. 온라인 상담 신청 (data/consult.ts) */}
+      <ConsultSection />
 
       {/* 10. 상담 안내 */}
       <ContactBand />

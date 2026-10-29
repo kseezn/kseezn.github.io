@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/Common";
+import ConsultSection from "@/components/ConsultSection";
 import { naverMapLink, offices, site } from "@/data/site";
 
 export const metadata: Metadata = { title: "상담 문의" };
@@ -9,6 +10,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero title="상담 문의" description="가까운 사무실로 전화하시거나 아래 채널로 문의해 주세요." />
+      <ConsultSection />
       <section className="section">
         <div className="container contact-grid">
           <article className="info-card">

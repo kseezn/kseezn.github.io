@@ -3277,3 +3277,227 @@ html:has(.award-viewer[open]) {
     animation: none;
   }
 }
+
+/* ── 온라인 상담 신청 ── */
+.consult {
+  scroll-margin-top: 80px;
+}
+.consult-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: stretch;
+}
+.consult-form {
+  display: grid;
+  gap: 18px;
+}
+.consult-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.consult-field {
+  display: grid;
+  gap: 7px;
+}
+.consult-field > span {
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.consult em {
+  color: #d63c3c;
+  font-style: normal;
+}
+.consult-field input,
+.consult-field select,
+.consult-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem; /* 휴대폰에서 누를 때 화면이 확대되지 않도록 16px 이상 */
+}
+.consult-field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.consult-field input:focus,
+.consult-field select:focus,
+.consult-field textarea:focus {
+  border-color: var(--navy);
+  outline: 2px solid rgba(19, 49, 96, 0.15);
+  outline-offset: 0;
+}
+.consult-field input::placeholder,
+.consult-field textarea::placeholder {
+  color: #9aa3b2;
+}
+.consult-bot {
+  display: none;
+}
+.consult-privacy {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 0.9375rem;
+}
+.consult-agree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.consult-agree input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy);
+}
+.consult-privacy details {
+  margin-top: 6px;
+  padding-left: 28px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.consult-privacy summary {
+  cursor: pointer;
+  color: var(--blue);
+}
+.consult-privacy ul {
+  margin-top: 6px;
+  padding-left: 16px;
+  list-style: disc;
+}
+.consult-submit {
+  justify-self: start;
+  min-height: 52px;
+  padding: 0 36px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--navy);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.consult-submit:hover {
+  background: var(--navy-deep);
+}
+.consult-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.consult-error {
+  color: #c62828;
+  font-weight: 600;
+}
+.consult-done,
+.consult-off {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 40px 32px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.consult-done strong {
+  color: var(--navy);
+  font-size: 1.25rem;
+}
+.consult-done p,
+.consult-off p {
+  color: var(--muted);
+}
+.consult-off a {
+  color: var(--navy);
+  font-weight: 700;
+}
+.consult-again {
+  justify-self: center;
+  margin-top: 8px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--navy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* 오른쪽 남색 안내 칸 */
+.consult-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  padding: 48px 40px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(77, 125, 214, 0.35), transparent 50%),
+    linear-gradient(160deg, var(--navy), var(--navy-deep));
+  color: var(--white);
+  text-align: center;
+}
+.consult-panel-title {
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+.consult-panel-text span {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.consult-panel-text span:last-child {
+  color: var(--white);
+  font-weight: 700;
+}
+.consult-panel-info {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.9375rem;
+}
+.consult-panel-info div {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.consult-panel-info dt {
+  color: var(--sky);
+  font-weight: 700;
+}
+.consult-panel-info a {
+  color: var(--white);
+  font-weight: 700;
+}
+.consult-panel :focus-visible {
+  outline-color: var(--white);
+}
+@media (max-width: 860px) {
+  .consult-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .consult-panel {
+    padding: 36px 24px;
+  }
+}
+@media (max-width: 640px) {
+  .consult-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .consult-submit {
+    justify-self: stretch;
+  }
+}
