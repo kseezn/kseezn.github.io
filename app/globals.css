@@ -3579,3 +3579,47 @@ html:has(.award-viewer[open]) {
     padding: 0;
   }
 }
+
+/* ── 첫 화면 사진 덮개 다시 맞추기 (어두운 건축·조각 사진용) ── */
+/* 글자가 있는 왼쪽만 남색으로 살짝 눌러 주고, 사진의 주인공이 있는 오른쪽은 거의 그대로 보이게 합니다.
+   숫자(0.68, 0.4 …)가 덮개 진하기예요. 0에 가까울수록 사진이 그대로, 1에 가까울수록 남색이 진해집니다. */
+.landing-shade {
+  background:
+    linear-gradient(90deg, rgba(8, 23, 48, 0.18) 0%, rgba(8, 23, 48, 0.1) 38%, rgba(8, 23, 48, 0.08) 68%, rgba(8, 23, 48, 0) 100%),
+    linear-gradient(0deg, rgba(8, 23, 48, 0.15) 0%, rgba(8, 23, 48, 0) 26%),
+    linear-gradient(180deg, rgba(8, 23, 48, 0.15) 0%, rgba(8, 23, 48, 0) 16%);
+}
+/* 사진의 오른쪽(기둥·조각·계단)이 잘리지 않게 오른쪽을 기준으로 맞춤 */
+.landing-media img {
+  object-position: 75% center;
+}
+@media (max-width: 640px) {
+  /* 휴대폰은 글자가 화면 전체에 걸쳐 있어서 덮개를 고르게 조금 더 진하게 */
+  .landing-shade {
+    background:
+      linear-gradient(90deg, rgba(8, 23, 48, 0.62) 0%, rgba(8, 23, 48, 0.38) 100%),
+      linear-gradient(0deg, rgba(8, 23, 48, 0.6) 0%, rgba(8, 23, 48, 0) 35%);
+  }
+}
+/* 확대 효과는 작게(1.06배 → 1배): 건축 사진의 직선이 출렁여 보이지 않도록 */
+.landing-media img {
+  transform: scale(1.06);
+}
+.landing-media img.is-active {
+  animation: landing-zoom-soft 9s ease-out forwards;
+}
+@keyframes landing-zoom-soft {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-media img,
+  .landing-media img.is-active {
+    animation: none;
+    transform: none;
+  }
+}
