@@ -3501,3 +3501,81 @@ html:has(.award-viewer[open]) {
     justify-self: stretch;
   }
 }
+
+/* ── 직원 카드: 사진(또는 대체 이미지) + 이름·직책·이력 ── */
+.staff-cards {
+  gap: 18px;
+}
+.staff-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+.staff-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5; /* 노무사 사진과 같은 비율 */
+  object-fit: cover;
+  object-position: center top;
+  background: var(--surface);
+}
+.staff-body {
+  padding: 18px 20px 20px;
+}
+.staff-name strong {
+  font-size: 1.25rem;
+}
+@media (max-width: 640px) {
+  .staff-body {
+    padding: 14px 14px 16px;
+  }
+  .staff-name strong {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ── 직원 카드: 사진을 왼쪽에 작게, 이름·이력은 오른쪽 ── */
+.staff-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+}
+.staff-photo {
+  flex: none;
+  width: 72px; /* 대체 이미지(사진) 크기. 높이는 4:5 비율로 자동 (90px) */
+  border-radius: 10px;
+}
+.staff-body {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+.staff-name strong {
+  font-size: 1.125rem;
+}
+.staff-careers {
+  margin-top: 8px;
+  padding-top: 8px;
+}
+.staff-careers li {
+  font-size: 0.875rem;
+}
+@media (max-width: 860px) {
+  .staff-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .staff-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .staff-card {
+    padding: 12px;
+  }
+  .staff-body {
+    padding: 0;
+  }
+}
