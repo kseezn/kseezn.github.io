@@ -11,14 +11,31 @@ export type Staff = {
 
 export const staff: Staff[] = [
   // ── 천안 본사 ──
-  { name: "진재용", role: "실장", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "김은정", role: "차장", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "김도연", role: "과장", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "백예지", role: "대리", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "강혁준", role: "주임", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "이혜민", role: "주임", office: "cheonan", careers: ["급여아웃소싱 전문"] },
-  { name: "유지원", role: "주임", office: "cheonan", careers: ["급여아웃소싱 전문"] },
+  { name: "진재용", role: "실장", office: "cheonan",
+    careers: ["제조업 등 급여아웃소싱 전문"] },
+  { name: "김은정", role: "차장", office: "cheonan",
+    careers: ["건설업 등 급여아웃소싱 전문",
+      "건설업 고용·산재보험 개산보험료 신고 전문",
+      "산재보험 환급 신청 전문"
+    ] },
+  { name: "김도연", role: "과장", office: "cheonan",
+    careers: ["건설업 등 급여아웃소싱 전문",
+      "건설업 고용·산재보험 개산보험료 신고 전문",
+      "임채부담금 경감 신청 전문"
+    ] },
+  { name: "백예지", role: "대리", office: "cheonan",
+    careers: ["제조업 등 급여아웃소싱 전문",
+      "워라밸 장려금 신청 전문"
+    ] },
+  { name: "강혁준", role: "주임", office: "cheonan",
+    careers: ["제조업 등 급여아웃소싱 전문"] },
+  { name: "이혜민", role: "주임", office: "cheonan",
+    careers: ["제조업 등 급여아웃소싱 전문"] },
+  { name: "유지원", role: "주임", office: "cheonan",
+    careers: ["제조업 등 급여아웃소싱 전문"] },
   // ── 아산 지사 ──
-  { name: "김진우", role: "팀장", office: "asan", careers: ["급여아웃소싱 전문"] },
-  { name: "오경희", role: "과장", office: "asan", careers: ["급여아웃소싱 전문"] },
+  { name: "김진우", role: "팀장", office: "asan",
+    careers: ["급여아웃소싱 전문"] },
+  { name: "오경희", role: "과장", office: "asan",
+    careers: ["급여아웃소싱 전문"] },
 ];
