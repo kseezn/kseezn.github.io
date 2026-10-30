@@ -3623,3 +3623,52 @@ html:has(.award-viewer[open]) {
     transform: none;
   }
 }
+
+/* ── 직원 카드: 이력이 길어도 보기 좋게 (사진·이름은 위, 이력은 아래 넓게) ── */
+.staff-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* PC에서는 한 줄에 3명 */
+}
+.staff-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr); /* 사진 폭 | 이름 */
+  grid-template-areas:
+    "photo name"
+    "careers careers";
+  align-content: start; /* 같은 줄 카드 높이는 맞추고, 내용은 위에서부터 */
+  align-items: center;
+  gap: 0 14px;
+  padding: 16px 18px 18px;
+}
+.staff-body {
+  display: contents; /* 이름과 이력을 카드 칸에 각각 배치 */
+}
+.staff-photo {
+  grid-area: photo;
+  width: 56px; /* 대체 이미지(사진) 크기. 높이는 4:5 비율로 자동 (70px) */
+  border-radius: 8px;
+}
+.staff-name {
+  grid-area: name;
+}
+.staff-careers {
+  grid-area: careers;
+  margin-top: 14px;
+  padding-top: 12px;
+}
+.staff-careers li {
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+@media (max-width: 860px) {
+  .staff-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .staff-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .staff-card {
+    padding: 14px 16px 16px;
+  }
+}
