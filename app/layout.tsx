@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: "노무법인 현명의 업무분야, 인사노무 인사이트와 법인 소식을 안내합니다.",
-  // 법인 정보를 다 채우기 전까지 검색엔진에 노출되지 않게 막아 둡니다. 정식 공개 때 이 줄을 지우세요.
-  robots: { index: false, follow: false },
+    // 공유·검색 결과에 쓰이는 홈페이지 기본 주소
+  metadataBase: new URL("https://yeshm.co.kr"),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
