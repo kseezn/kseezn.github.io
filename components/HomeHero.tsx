@@ -107,6 +107,11 @@ export default function HomeHero() {
           <a href={site.youtube} target="_blank" rel="noopener noreferrer">
             YOUTUBE
           </a>
+           {site.instagram && (
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+              INSTAGRAM
+            </a>
+          )}
           {site.kakao && (
             <a href={site.kakao} target="_blank" rel="noopener noreferrer">
               KAKAO

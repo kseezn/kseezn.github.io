@@ -174,6 +174,11 @@ export function SiteFooter() {
             <a href={site.youtube} target="_blank" rel="noopener noreferrer">
               유튜브 ↗
             </a>
+            {site.instagram && (
+              <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+                인스타그램 ↗
+              </a>
+            )}
           </p>
         </div>
         <div className="footer-offices">

@@ -29,6 +29,8 @@ const menu: MenuItem[] = [
     children: [
       { label: "인사이트 전체", href: "/insights/" },
       { label: "공식 블로그 ↗", href: site.blog, external: true },
+      // 인스타그램 주소가 있을 때만 메뉴에 보입니다.
+      ...(site.instagram ? [{ label: "인스타그램 ↗", href: site.instagram, external: true }] : []),
     ],
   },
   {

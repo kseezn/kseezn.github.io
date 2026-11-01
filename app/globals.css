@@ -3672,3 +3672,13 @@ html:has(.award-viewer[open]) {
     padding: 14px 16px 16px;
   }
 }
+
+/* ── 인스타그램 추가: 휴대폰에서는 전화번호 한 줄, 채널 4개 한 줄로 정리 ── */
+@media (max-width: 480px) {
+  .landing-channels {
+    gap: 6px 14px;
+  }
+  .landing-channels a[href^="tel:"] {
+    flex-basis: 100%;
+  }
+}

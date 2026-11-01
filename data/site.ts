@@ -6,6 +6,7 @@ export const site = {
   englishName: "WISE LABOR LAW FIRM",
   blog: "https://blog.naver.com/nomusa91",
   youtube: "https://www.youtube.com/@wiselabor",
+    instagram: "https://www.instagram.com/yeshm91", // 인스타그램 주소. 예: "https://www.instagram.com/계정이름/" 비우면 메뉴·푸터·첫 화면에서 숨겨집니다.
   phone: "041-556-5027", // 대표전화 (천안 본사)
   fax: "041-557-5027",
   email: "",
