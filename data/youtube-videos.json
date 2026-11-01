@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-10-27T07:30:10.846Z",
+  "updatedAt": "2026-11-01T13:09:01.159Z",
   "videos": [
+    {
+      "id": "iu4Lv3ANgUE",
+      "title": "빌렸으면 갚는겁니다 #노무사 #회사 #대여금",
+      "published": "2026-11-01T10:01:05.000Z",
+      "url": "https://www.youtube.com/watch?v=iu4Lv3ANgUE",
+      "thumbnail": "https://i.ytimg.com/vi/iu4Lv3ANgUE/hqdefault.jpg"
+    },
     {
       "id": "Ok7WtKNsr7Y",
       "title": "K-대표의 출근길",
@@ -99,13 +106,6 @@
       "published": "2026-08-16T10:25:21.000Z",
       "url": "https://www.youtube.com/watch?v=WPnCHdQVeDE",
       "thumbnail": "https://i.ytimg.com/vi/WPnCHdQVeDE/hqdefault.jpg"
-    },
-    {
-      "id": "o1x4YMp4D9M",
-      "title": "2027년 최저임금 확정! 내 월급으로 치킨 몇 마리 더 먹을까? 🍗#2027 #최저임금 #월급",
-      "published": "2026-08-09T17:09:48.000Z",
-      "url": "https://www.youtube.com/watch?v=o1x4YMp4D9M",
-      "thumbnail": "https://i.ytimg.com/vi/o1x4YMp4D9M/hqdefault.jpg"
     }
   ]
 }
