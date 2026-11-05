@@ -68,6 +68,7 @@ export type Office = {
   lat?: number; // 지도 위치가 조금 어긋나면 위도·경도를 직접 넣으세요.
   lng?: number;
   naverMapUrl?: string; // 네이버 지도 '공유' 링크를 넣으면 길찾기 버튼이 그 장소로 바로 열립니다.
+  directionsUrl?: string; // 지도 점을 눌렀을 때 '길찾기' 주소. 비우면 위도·경도로 자동으로 만듭니다.
 };
 
 // 사무실 목록. 오시는 길 페이지, 상담 문의 페이지, 푸터에 함께 쓰입니다.
@@ -109,4 +110,13 @@ export const offices: Office[] = [
 // 네이버 지도에서 이 사무실을 여는 주소 (공유 링크가 없으면 주소로 검색)
 export function naverMapLink(office: Office) {
   return office.naverMapUrl || `https://map.naver.com/p/search/${encodeURIComponent(office.address)}`;
+}
+
+// 네이버 지도 길찾기 (도착지가 이 사무실로 채워진 상태로 열림)
+// directionsUrl을 적어 두면 그 주소를, 없으면 위도·경도로 길찾기 주소를 만듭니다.
+export function naverDirectionsLink(office: Office) {
+  if (office.directionsUrl) return office.directionsUrl;
+  if (!office.lat || !office.lng) return naverMapLink(office);
+  const name = encodeURIComponent(`${site.name} ${office.name}`);
+  return `https://map.naver.com/p/directions/-/${office.lng},${office.lat},${name}/-/transit`;
 }

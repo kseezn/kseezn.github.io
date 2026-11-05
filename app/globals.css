@@ -3795,3 +3795,118 @@ html:has(.award-viewer[open]) {
     transition: none;
   }
 }
+
+/* ── 오시는 길: 지도 점을 누르면 '길찾기' 말풍선 ── */
+.map-spot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.map-spot .map-marker {
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+.map-popup {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  z-index: 1;
+  width: max-content;
+  max-width: 280px;
+  padding: 14px 18px 16px;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(8, 23, 48, 0.22);
+  color: var(--ink);
+  font-family: inherit;
+  line-height: 1.45;
+  text-align: center;
+  word-break: keep-all;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+}
+/* 말풍선 아래 뾰족한 꼬리 */
+.map-popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 7px solid transparent;
+  border-top-color: var(--white);
+  transform: translateX(-50%);
+}
+.map-spot.is-open .map-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.map-popup strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+.map-popup span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+.map-popup-route {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white) !important;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.map-popup-route:hover {
+  background: var(--blue);
+}
+/* 휴대폰은 지도가 작아서 주소 줄을 빼고 말풍선을 작게 */
+@media (max-width: 640px) {
+  .map-popup {
+    padding: 12px 14px 14px;
+  }
+  .map-popup span {
+    display: none;
+  }
+  .map-popup-route {
+    margin-top: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-popup {
+    transition: none;
+  }
+}
+
+/* ── 지도 점: 누르는 범위를 물결이 퍼지는 크기만큼 넓게 ── */
+.map-spot .map-marker::before {
+  content: "";
+  position: absolute;
+  inset: -40px; /* 점 18px + 양쪽 40px = 지름 98px (물결이 가장 크게 퍼진 크기, 18px × 5.5배) */
+  border-radius: 50%;
+}
+/* 닫히는 중인 말풍선이 점 누르기를 가로막지 않게 */
+.map-popup {
+  pointer-events: none;
+}
+.map-spot.is-open .map-popup {
+  pointer-events: auto;
+}

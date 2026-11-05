@@ -1,7 +1,7 @@
 "use client"; // 네이버 지도는 방문자의 브라우저에서 불러와야 해서 브라우저에서 실행됩니다.
 
 import { useEffect, useRef, useState } from "react";
-import { naverMapLink, offices, site, type Office } from "@/data/site";
+import { naverDirectionsLink, naverMapLink, offices, site, type Office } from "@/data/site";
 
 // 네이버 지도 스크립트에서 이 파일이 쓰는 부분만 적어 둔 타입입니다.
 type GeocodeResult = { v2: { addresses: { x: string; y: string }[] } };
@@ -61,8 +61,26 @@ function findPosition(maps: NaverMaps, office: Office): Promise<{ lat: number; l
   });
 }
 
-// 지도 위 표시: 가운데 점 + 물결 두 겹
-const MARKER_HTML = '<div class="map-marker"><span></span><span></span></div>';
+// 글자를 HTML 안에 넣기 전에 특수 문자를 안전하게 바꿉니다.
+function escapeHtml(text: string) {
+  return text.replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
+}
+
+// 지도 위 표시: 남색 점(물결 두 겹) + 점을 누르면 위에 뜨는 길찾기 말풍선
+function createPin(office: Office) {
+  const pin = document.createElement("div");
+  pin.className = "map-spot";
+  pin.innerHTML =
+    `<div class="map-popup">` +
+    `<strong>${escapeHtml(`${site.name} ${office.name}`)}</strong>` +
+    `<span>${escapeHtml(office.address)}</span>` +
+    `<a class="map-popup-route" href="${escapeHtml(naverDirectionsLink(office))}" target="_blank" rel="noopener noreferrer">네이버 지도 길찾기 ↗</a>` +
+    `</div>` +
+    `<button type="button" class="map-marker" aria-label="${escapeHtml(office.name)} 길찾기 열기"><span></span><span></span></button>`;
+  // 점을 누를 때마다 말풍선을 열고 닫습니다.
+  pin.querySelector("button")?.addEventListener("click", () => pin.classList.toggle("is-open"));
+  return pin;
+}
 
 export default function NaverMap({ office }: { office: Office }) {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -91,12 +109,12 @@ export default function NaverMap({ office }: { office: Office }) {
           zoomControlOptions: { style: maps.ZoomControlStyle.SMALL, position: maps.Position.TOP_LEFT },
           scaleControl: false,
         });
-        // 기본 핀 대신 퍼져 나가는 물결 효과가 있는 남색 점 (모양은 globals.css의 .map-marker)
+        // 기본 핀 대신 퍼져 나가는 물결 효과가 있는 남색 점 (모양은 globals.css의 .map-marker, .map-popup)
         new maps.Marker({
           position,
           map,
-          title: office.name,
-          icon: { content: MARKER_HTML, anchor: new maps.Point(9, 9) },
+          clickable: true,
+          icon: { content: createPin(office), anchor: new maps.Point(9, 9) },
         });
         setStatus("ready");
       })
@@ -116,10 +134,19 @@ export default function NaverMap({ office }: { office: Office }) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (!active) return;
-    // 지도 바깥을 누르면 다시 막을 씌웁니다.
+    if (!active) {
+      // 막이 다시 씌워지면 열려 있던 길찾기 말풍선도 닫습니다. (막에 가려 누를 수 없으니까)
+      boxRef.current?.querySelectorAll(".map-spot.is-open").forEach((pin) => pin.classList.remove("is-open"));
+      return;
+    }
     function handleOutside(event: PointerEvent) {
-      if (!boxRef.current?.contains(event.target as Node)) setActive(false);
+      const target = event.target as Element;
+      // 지도 바깥을 누르면 다시 막을 씌웁니다.
+      if (!boxRef.current?.contains(target)) setActive(false);
+      // 점·말풍선이 아닌 곳을 누르면 말풍선을 닫습니다.
+      if (!target.closest?.(".map-spot")) {
+        boxRef.current?.querySelectorAll(".map-spot.is-open").forEach((pin) => pin.classList.remove("is-open"));
+      }
     }
     document.addEventListener("pointerdown", handleOutside);
     return () => document.removeEventListener("pointerdown", handleOutside);
@@ -142,7 +169,19 @@ export default function NaverMap({ office }: { office: Office }) {
         </div>
       )}
       {status === "ready" && !active && (
-        <button type="button" className="map-shield" onClick={() => setActive(true)}>
+        <button
+          type="button"
+          className="map-shield"
+          onClick={(event) => {
+            setActive(true);
+            // 막을 누른 자리가 마침 남색 점 위였다면 길찾기 말풍선도 바로 엽니다.
+            const pin = document
+              .elementsFromPoint(event.clientX, event.clientY)
+              .find((element) => element.closest(".map-spot"))
+              ?.closest(".map-spot");
+            pin?.classList.add("is-open");
+          }}
+        >
           <span>눌러서 지도 움직이기</span>
         </button>
       )}
