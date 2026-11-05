@@ -3,6 +3,7 @@ import Link from "next/link";
 import BrandName from "@/components/BrandName";
 import LogoMark from "@/components/LogoMark";
 import { faqs, offices, services, site, type Service } from "@/data/site";
+import { ServiceIcon } from "@/components/ServiceIcons";
 import type { BlogPost } from "@/lib/blog";
 import { sectionLabels } from "@/lib/labels";
 import { formatDate } from "@/lib/format";
@@ -66,12 +67,16 @@ export function ServiceCards({ list = services }: { list?: Service[] }) {
     <div className="service-grid">
       {list.map((service) => (
         <Link className="service-card" href={`/services/${service.slug}/`} key={service.slug}>
-          <h3>
-            {service.title}
-            <span className="arrow" aria-hidden="true">
-              →
-            </span>
-          </h3>
+          <span className="service-card-icon">
+            <ServiceIcon slug={service.slug} size={24} />
+          </span>
+          <div className="service-card-head">
+            <span className="service-card-english">{service.english}</span>
+            <h3>{service.title}</h3>
+          </div>
+          <span className="arrow" aria-hidden="true">
+            →
+          </span>
           <p>{service.summary}</p>
         </Link>
       ))}

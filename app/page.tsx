@@ -2,28 +2,16 @@ import Link from "next/link";
 import { BlogCards } from "@/components/BlogCards";
 import ClientsAwards from "@/components/ClientsAwards";
 import ConsultSection from "@/components/ConsultSection";
-import {
-  ContactBand,
-  FaqList,
-  NewsRows,
-  SectionHeading,
-  ServiceCards,
-  ServiceIcon,
-} from "@/components/Common";
+import { ContactBand, FaqList, NewsRows, SectionHeading, ServiceCards } from "@/components/Common";
 import HomeHero from "@/components/HomeHero";
 import { MemberCards } from "@/components/Members";
 import VideoGrid from "@/components/VideoGrid";
 import { members } from "@/data/members";
-import { coreSlugs, services, strengths } from "@/data/site";
+import { strengths } from "@/data/site";
 import { getPosts } from "@/lib/blog";
 import { getVideos } from "@/lib/youtube";
 
 export default function HomePage() {
-  // coreSlugs에 적은 순서대로 핵심 업무 3개를 꺼냅니다.
-  const coreServices = coreSlugs
-    .map((slug) => services.find((service) => service.slug === slug))
-    .filter((service) => service !== undefined);
-
   return (
     <>
       {/* 1. 첫 화면: 화면 전체 사진 + 큰 제목 (components/HomeHero.tsx, data/hero.ts) */}
@@ -41,35 +29,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. 핵심 업무 카드 3개 */}
-      <section className="section section-muted">
-        <div className="container">
-          <SectionHeading eyebrow="CORE PRACTICE" title="주요 업무를 소개합니다" />
-          <div className="core-grid">
-            {coreServices.map((service) => (
-              <Link className="core-card" href={`/services/${service.slug}/`} key={service.slug}>
-                <div className="core-top">
-                  <span className="core-icon">
-                    <ServiceIcon slug={service.slug} />
-                  </span>
-                  <span className="core-label">{service.title}</span>
-                </div>
-                <h3>{service.lead}</h3>
-                <p>{service.summary}</p>
-                <ul className="tags">
-                  {service.tasks.slice(0, 2).map((task) => (
-                    <li key={task}>{task}</li>
-                  ))}
-                </ul>
-                <span className="more">자세히 보기 →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. 전체 업무분야 10개 */}
-      <section className="section" id="work">
+      {/* 3. 업무분야 12개 (data/services.ts, 카드 모양은 components/Common.tsx의 ServiceCards) */}
+      <section className="section section-muted" id="work">
         <div className="container">
           <SectionHeading
             eyebrow="PRACTICE AREAS"
@@ -78,11 +39,16 @@ export default function HomePage() {
             align="center"
           />
           <ServiceCards />
+          <div className="center">
+            <Link className="more" href="/services/">
+              업무분야 전체 보기 →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 5. 구성원 소개 (data/members.ts) */}
-      <section className="section section-muted">
+      {/* 4. 구성원 소개 (data/members.ts) */}
+      <section className="section">
         <div className="container">
           <SectionHeading
             eyebrow="MEMBERS"
@@ -99,10 +65,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5-1. 고객사 로고 · 수상 및 위촉 (data/clients.ts) */}
+      {/* 4-1. 고객사 로고 · 수상 및 위촉 (data/clients.ts) */}
       <ClientsAwards />
 
-      {/* 6. 인사이트 최신 글 3개 */}
+      {/* 5. 인사이트 최신 글 3개 */}
       <section className="section">
         <div className="container">
           <SectionHeading
@@ -120,7 +86,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. 유튜브 최근 영상 3개 */}
+      {/* 6. 유튜브 최근 영상 3개 */}
       <section className="section section-muted">
         <div className="container">
           <SectionHeading
@@ -138,7 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. 법인 소식 · HR뉴스 */}
+      {/* 7. 법인 소식 · HR뉴스 */}
       <section className="section">
         <div className="container">
           <SectionHeading
@@ -166,17 +132,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. 자주 묻는 질문 */}
+      {/* 8. 자주 묻는 질문 */}
       <section className="section section-muted" id="faq">
         <div className="container">
           <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" align="center" />
           <FaqList />
         </div>
       </section>
-      {/* 9-1. 온라인 상담 신청 (data/consult.ts) */}
+
+      {/* 8-1. 온라인 상담 신청 (data/consult.ts) */}
       <ConsultSection />
 
-      {/* 10. 상담 안내 */}
+      {/* 9. 상담 안내 */}
       <ContactBand />
     </>
   );
