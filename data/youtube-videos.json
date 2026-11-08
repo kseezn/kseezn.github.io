@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-01T13:09:01.159Z",
+  "updatedAt": "2026-11-08T15:52:46.676Z",
   "videos": [
+    {
+      "id": "b7M1YaRKHGc",
+      "title": "2027 달라지는 노동법 총정리! 최저임금·휴가·고용보험, 무엇이 바뀔까? #노무사 #2027 #시급",
+      "published": "2026-11-08T14:35:26.000Z",
+      "url": "https://www.youtube.com/watch?v=b7M1YaRKHGc",
+      "thumbnail": "https://i.ytimg.com/vi/b7M1YaRKHGc/hqdefault.jpg"
+    },
     {
       "id": "iu4Lv3ANgUE",
       "title": "빌렸으면 갚는겁니다 #노무사 #회사 #대여금",
@@ -99,13 +106,6 @@
       "published": "2026-08-23T10:30:07.000Z",
       "url": "https://www.youtube.com/watch?v=fmJYPHUvzEE",
       "thumbnail": "https://i.ytimg.com/vi/fmJYPHUvzEE/hqdefault.jpg"
-    },
-    {
-      "id": "WPnCHdQVeDE",
-      "title": "🚨2026년 하반기 노동법 대격변! 모르면 내 돈 날아가는 디테일 총정리💸 #육아휴직 #출산휴가 #위험성평가",
-      "published": "2026-08-16T10:25:21.000Z",
-      "url": "https://www.youtube.com/watch?v=WPnCHdQVeDE",
-      "thumbnail": "https://i.ytimg.com/vi/WPnCHdQVeDE/hqdefault.jpg"
     }
   ]
 }
