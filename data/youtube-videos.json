@@ -1,7 +1,21 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-08T15:52:46.676Z",
+  "updatedAt": "2026-11-16T09:03:47.526Z",
   "videos": [
+    {
+      "id": "69F5eTGp1Qo",
+      "title": "현명에서 함께 일합시다!",
+      "published": "2026-11-16T07:25:38.000Z",
+      "url": "https://www.youtube.com/watch?v=69F5eTGp1Qo",
+      "thumbnail": "https://i.ytimg.com/vi/69F5eTGp1Qo/hqdefault.jpg"
+    },
+    {
+      "id": "WAjl8VW4QZ4",
+      "title": "누군가는 몇 년을 버텼는데… AI로 수석 합격했다고?",
+      "published": "2026-11-16T06:14:16.000Z",
+      "url": "https://www.youtube.com/watch?v=WAjl8VW4QZ4",
+      "thumbnail": "https://i.ytimg.com/vi/WAjl8VW4QZ4/hqdefault.jpg"
+    },
     {
       "id": "b7M1YaRKHGc",
       "title": "2027 달라지는 노동법 총정리! 최저임금·휴가·고용보험, 무엇이 바뀔까? #노무사 #2027 #시급",
@@ -92,20 +106,6 @@
       "published": "2026-08-28T09:32:19.000Z",
       "url": "https://www.youtube.com/watch?v=Akxp9Y1f7So",
       "thumbnail": "https://i.ytimg.com/vi/Akxp9Y1f7So/hqdefault.jpg"
-    },
-    {
-      "id": "kak7qezU55I",
-      "title": "노무사 시험 합격하면 진짜 좋은 게 뭔지 아시나요? #노무사시험 #ai #쇼츠",
-      "published": "2026-08-27T08:51:56.000Z",
-      "url": "https://www.youtube.com/watch?v=kak7qezU55I",
-      "thumbnail": "https://i.ytimg.com/vi/kak7qezU55I/hqdefault.jpg"
-    },
-    {
-      "id": "fmJYPHUvzEE",
-      "title": "🚨2026년 8월 국무회의 하반기 노동법 대격변! 모르면 내 돈 날아가는 디테일 총정리💸 #육아휴직 #출산휴가 #위험성평가",
-      "published": "2026-08-23T10:30:07.000Z",
-      "url": "https://www.youtube.com/watch?v=fmJYPHUvzEE",
-      "thumbnail": "https://i.ytimg.com/vi/fmJYPHUvzEE/hqdefault.jpg"
     }
   ]
 }
