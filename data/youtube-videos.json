@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-16T09:03:47.526Z",
+  "updatedAt": "2026-11-18T07:37:53.582Z",
   "videos": [
+    {
+      "id": "kWHpNSPkxk4",
+      "title": "노무사 휴일Vlog  #노무사 #노동법 #노동청",
+      "published": "2026-11-18T06:09:57.000Z",
+      "url": "https://www.youtube.com/watch?v=kWHpNSPkxk4",
+      "thumbnail": "https://i.ytimg.com/vi/kWHpNSPkxk4/hqdefault.jpg"
+    },
     {
       "id": "69F5eTGp1Qo",
       "title": "현명에서 함께 일합시다!",
@@ -99,13 +106,6 @@
       "published": "2026-09-06T17:25:27.000Z",
       "url": "https://www.youtube.com/watch?v=Lw_0pX2e1gI",
       "thumbnail": "https://i.ytimg.com/vi/Lw_0pX2e1gI/hqdefault.jpg"
-    },
-    {
-      "id": "Akxp9Y1f7So",
-      "title": "내 발로 퇴사해도 실업급여 100만원?! 🔥#청년 #이슈 #쇼츠",
-      "published": "2026-08-28T09:32:19.000Z",
-      "url": "https://www.youtube.com/watch?v=Akxp9Y1f7So",
-      "thumbnail": "https://i.ytimg.com/vi/Akxp9Y1f7So/hqdefault.jpg"
     }
   ]
 }
