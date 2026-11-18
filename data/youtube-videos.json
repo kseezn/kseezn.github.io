@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-18T07:37:53.582Z",
+  "updatedAt": "2026-11-18T10:23:03.865Z",
   "videos": [
+    {
+      "id": "wWe4g2O_VvI",
+      "title": "누군가는 몇 년을 버텼는데… #세무사시험 #수석 #부정행위",
+      "published": "2026-11-18T09:53:37.000Z",
+      "url": "https://www.youtube.com/watch?v=wWe4g2O_VvI",
+      "thumbnail": "https://i.ytimg.com/vi/wWe4g2O_VvI/hqdefault.jpg"
+    },
     {
       "id": "kWHpNSPkxk4",
       "title": "노무사 휴일Vlog  #노무사 #노동법 #노동청",
@@ -99,13 +106,6 @@
       "published": "2026-09-11T07:22:37.000Z",
       "url": "https://www.youtube.com/watch?v=tQHsTLOOn0w",
       "thumbnail": "https://i.ytimg.com/vi/tQHsTLOOn0w/hqdefault.jpg"
-    },
-    {
-      "id": "Lw_0pX2e1gI",
-      "title": "자진퇴사 실업급여 핵심 Q&A 정리 #청년 #알바 #쇼츠",
-      "published": "2026-09-06T17:25:27.000Z",
-      "url": "https://www.youtube.com/watch?v=Lw_0pX2e1gI",
-      "thumbnail": "https://i.ytimg.com/vi/Lw_0pX2e1gI/hqdefault.jpg"
     }
   ]
 }
