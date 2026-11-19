@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-18T10:23:03.865Z",
+  "updatedAt": "2026-11-19T07:40:04.168Z",
   "videos": [
+    {
+      "id": "k_iS1U2D9UE",
+      "title": "35기 노무사 여러분들을 초대합니다!! #노무사 #노동법",
+      "published": "2026-11-19T07:17:10.000Z",
+      "url": "https://www.youtube.com/watch?v=k_iS1U2D9UE",
+      "thumbnail": "https://i.ytimg.com/vi/k_iS1U2D9UE/hqdefault.jpg"
+    },
     {
       "id": "wWe4g2O_VvI",
       "title": "누군가는 몇 년을 버텼는데… #세무사시험 #수석 #부정행위",
@@ -99,13 +106,6 @@
       "published": "2026-09-13T14:43:40.000Z",
       "url": "https://www.youtube.com/watch?v=4YPcycSmptE",
       "thumbnail": "https://i.ytimg.com/vi/4YPcycSmptE/hqdefault.jpg"
-    },
-    {
-      "id": "tQHsTLOOn0w",
-      "title": "70만 원 꿀 빨려다 수천만 원 날린다?! 💸 (feat. 삼성전자 부정수급) #월세 #지원금 #쇼츠",
-      "published": "2026-09-11T07:22:37.000Z",
-      "url": "https://www.youtube.com/watch?v=tQHsTLOOn0w",
-      "thumbnail": "https://i.ytimg.com/vi/tQHsTLOOn0w/hqdefault.jpg"
     }
   ]
 }
