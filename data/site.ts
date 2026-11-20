@@ -10,7 +10,7 @@ export const site = {
   phone: "041-556-5027", // 대표전화 (천안 본사)
   fax: "041-557-5027",
   email: "",
-  hours: "평일 09:30 - 17:30", // 예: "평일 09:00 - 18:00"
+  hours: "평일 08:00 - 20:00", // 예: "평일 09:00 - 18:00"
   address: "충남 천안시 동남구 청수14로 102, 에이스법조타워 606~607호",
   mapUrl: "https://naver.me/xumadMhs", // 네이버 지도 링크
   kakao: "https://pf.kakao.com/_RJyIG/chat", // 카카오톡 채널 링크
