@@ -36,6 +36,7 @@ export const members: Member[] = [
       "現) 삼성생명 주식회사 노무팀장",
       "現) 우체국물류지원단 사외이사",
       "現) 근로복지공단 기업복지 컨설턴트",
+      "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
       { title: "자격", items: ["공인노무사", "ISO 45001 심사원", "갈등관리사", "공인중개사"], compact: true },
@@ -132,6 +133,7 @@ export const members: Member[] = [
       "現) 중소기업중앙회 비즈니스지원단 전문위원",
       "現) 공동주택 경비원 근무방식 개편 컨설턴트",
       "現) 노동시간단축 컨설팅 컨설턴트",
+      "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
       {
@@ -170,7 +172,10 @@ export const members: Member[] = [
     office: "cheonan",
     photo: "/members/park-dongju.jpg",
     photoSizes: [300, 450, 600, 900],
-    highlights: [],
+    highlights: [
+      "現) 노무법인 현명 천안본사",
+      "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
+    ],
     sections: [
       {
         title: "주요 경력",
@@ -193,7 +198,10 @@ export const members: Member[] = [
     photo: "/members/oh-eunseo.jpg",
     photoSizes: [300, 450, 600, 900],
     intro: "인적자원관리(HRM) 전문가",
-    highlights: [],
+    highlights: [
+      "現) 노무법인 현명 천안본사",
+      "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
+    ],
     sections: [
       {
         title: "주요 경력",
