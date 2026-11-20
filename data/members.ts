@@ -136,6 +136,7 @@ export const members: Member[] = [
       "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
+      { title: "자격", items: ["공인노무사"], compact: true },
       {
         title: "주요 경력",
         items: [
@@ -177,6 +178,7 @@ export const members: Member[] = [
       "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
+      { title: "자격", items: ["공인노무사"], compact: true },
       {
         title: "주요 경력",
         items: [
@@ -197,12 +199,12 @@ export const members: Member[] = [
     office: "cheonan",
     photo: "/members/oh-eunseo.jpg",
     photoSizes: [300, 450, 600, 900],
-    intro: "인적자원관리(HRM) 전문가",
     highlights: [
       "現) 노무법인 현명 천안본사",
       "現) 에프엠어소시에이츠 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
+      { title: "자격", items: ["공인노무사", "인적자원관리(HRM) 전문가"], compact: true },
       {
         title: "주요 경력",
         items: [
@@ -230,7 +232,9 @@ export const members: Member[] = [
       "現) 충청남도 노동권익 보호관",
       "現) 충남북부상공회의소 경영상담위원",
     ],
-    sections: [],
+    sections: [
+      { title: "자격", items: ["공인노무사"], compact: true },
+    ],
   },
   {
     id: "woo-jaewon",
@@ -249,6 +253,7 @@ export const members: Member[] = [
       "現) 아이엔제이컨설팅 일터혁신 상생컨설팅 컨설턴트",
     ],
     sections: [
+      { title: "자격", items: ["공인노무사"], compact: true },
       {
         title: "주요 경력",
         items: [
@@ -279,6 +284,7 @@ export const members: Member[] = [
       "現) 직장 내 괴롭힘 예방교육 전문강사 ",
     ],
     sections: [
+      { title: "자격", items: ["공인노무사"], compact: true },
       {
         title: "주요 경력",
         items: [
