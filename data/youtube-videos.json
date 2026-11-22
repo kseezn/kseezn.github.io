@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-19T07:40:04.168Z",
+  "updatedAt": "2026-11-22T08:34:57.176Z",
   "videos": [
+    {
+      "id": "BESmYwMSDRA",
+      "title": "회사 화장실·휴게실, 지원받아 고칠 수 있다고? #Shorts",
+      "published": "2026-11-22T08:28:18.000Z",
+      "url": "https://www.youtube.com/watch?v=BESmYwMSDRA",
+      "thumbnail": "https://i.ytimg.com/vi/BESmYwMSDRA/hqdefault.jpg"
+    },
     {
       "id": "k_iS1U2D9UE",
       "title": "35기 노무사 여러분들을 초대합니다!! #노무사 #노동법",
@@ -99,13 +106,6 @@
       "published": "2026-09-20T22:18:14.000Z",
       "url": "https://www.youtube.com/watch?v=nDkm5RfblRc",
       "thumbnail": "https://i.ytimg.com/vi/nDkm5RfblRc/hqdefault.jpg"
-    },
-    {
-      "id": "4YPcycSmptE",
-      "title": "🚨2027년 실업급여 개편! 월 수령액 22만 원 깎이는 진짜 이유💸",
-      "published": "2026-09-13T14:43:40.000Z",
-      "url": "https://www.youtube.com/watch?v=4YPcycSmptE",
-      "thumbnail": "https://i.ytimg.com/vi/4YPcycSmptE/hqdefault.jpg"
     }
   ]
 }
