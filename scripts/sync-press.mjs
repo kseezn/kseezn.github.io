@@ -88,9 +88,9 @@ const OUTLETS = {
   "todayenergy.kr": "투데이에너지",
   "worklaw.co.kr": "노동법률",
   "hrinsight.co.kr": "HR Insight",
-  "swtvnews.com":"스포츠W",
-  "idsn.co.kr":"매일안전신문",
-  "gosiweek.com":"피앤피뉴스",
+  "swtvnews.com": "스포츠W",
+  "idsn.co.kr": "매일안전신문",
+  "gosiweek.com": "피앤피뉴스",
 };
 
 // 검색 결과의 <b> 표시와 &quot; 같은 특수문자 표기를 정리합니다.
