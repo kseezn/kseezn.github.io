@@ -184,15 +184,25 @@ async function main() {
   const articles = new Map(saved.articles.map((article) => [article.id, article]));
   let added = 0;
   let renamed = 0;
+  let checked = 0;
 
-  // 이미 저장된 기사 중 언론사가 도메인으로 남은 것은 이름을 한 번 다시 찾아봅니다.
+  // 이미 저장된 기사 중 언론사가 도메인으로 남은 것을 다시 정리합니다.
   for (const article of articles.values()) {
-    if (article.sourceChecked || !looksLikeDomain(article.source)) continue;
+    if (!looksLikeDomain(article.source)) continue;
+    // ① 위 OUTLETS 목록에 이름을 새로 적었으면 바로 그 이름으로 바꿉니다. (매번 확인)
     const name = outletName(article.url);
-    const better = looksLikeDomain(name) ? await siteName(article.url) : name;
+    if (!looksLikeDomain(name)) {
+      article.source = name;
+      renamed += 1;
+      continue;
+    }
+    // ② 목록에 없으면 기사 페이지의 사이트 이름을 한 번만 찾아봅니다.
+    if (article.sourceChecked) continue;
+    const found = await siteName(article.url);
     article.sourceChecked = true;
-    if (better && better !== article.source) {
-      article.source = better;
+    checked += 1;
+    if (found) {
+      article.source = found;
       renamed += 1;
     }
   }
@@ -233,7 +243,7 @@ async function main() {
     await new Promise((resolve) => setTimeout(resolve, 200)); // 너무 빠르게 연달아 부르지 않게
   }
 
-  if (added === 0 && renamed === 0) {
+  if (added === 0 && renamed === 0 && checked === 0) {
     console.log(`언론 보도: 새 기사 없음 (저장 ${articles.size}건)`);
     return;
   }
