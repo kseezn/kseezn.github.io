@@ -60,11 +60,30 @@ function firstImage(html) {
 }
 
 // "[천안 노무사/아산 노무사] 제목 [노무법인 현명]" → "제목"
+// 예전 글의 "[기업자문] 제목 [노무법인 현명/천안노무사]" 같은 머리말·꼬리말도 뗍니다.
+const TITLE_LABELS = /^\[(기업자문|노무자문|법률정보|법률정도|사례|정부\s*지원금|산업재해|임금체불|임금|서식자료|대지급금[^\]]*)\]\s*/;
 function displayTitle(title) {
   return title
     .replace(/^\[[^\]]*노무사[^\]]*\]\s*/, "")
-    .replace(/\s*\[노무법인\s*현명\]\s*$/, "")
+    .replace(TITLE_LABELS, "")
+    .replace(/\s*\[[^\]]*노무법인\s*현명[^\]]*\]?\s*$/, "")
+    .replace(/\s*-\s*노무법인\s*현명\s*$/, "")
+    .replace(/\s+/g, " ")
     .trim();
+}
+
+// 모바일 블로그 썸네일(mblogthumb-phinf) 주소는 크기(type)가 없으면 열리지 않아서 붙여 줍니다.
+function fixImage(src = "") {
+  try {
+    const url = new URL(src);
+    if (url.hostname === "mblogthumb-phinf.pstatic.net" && !url.searchParams.has("type")) {
+      url.searchParams.set("type", "w773");
+      return url.href;
+    }
+  } catch {
+    // 주소 형식이 아니면 그대로 둡니다.
+  }
+  return src;
 }
 
 // 날짜를 "2026-10-23T05:13:25+00:00" 형태로 맞춥니다. (기존 파일과 같은 형태)
@@ -127,6 +146,7 @@ function mergePosts(previous, incoming, overrides) {
     if (!SECTIONS.includes(post.section)) throw new Error(`잘못된 분류: ${post.id}`);
     post.hidden = Boolean(entry.hidden);
     post.displayTitle = entry.displayTitle || displayTitle(post.title);
+    post.image = fixImage(post.image);
   }
   // 최신 글이 먼저 오도록 정렬 (날짜가 같으면 글 번호로)
   const key = (post) => `${post.date} ${post.id}`;
