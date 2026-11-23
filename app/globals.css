@@ -3910,3 +3910,101 @@ html:has(.award-viewer[open]) {
 .map-spot.is-open .map-popup {
   pointer-events: auto;
 }
+
+/* ── 업무분야 펼침 메뉴: 긴 이름도 한 줄로 (PC 화면만. 1181px은 메뉴 버튼으로 바뀌는 폭 1180px 바로 위) ── */
+@media (min-width: 1181px) {
+  .dropdown-wide {
+    grid-template-columns: repeat(2, minmax(160px, max-content)); /* 가장 긴 이름에 맞춰 칸 폭이 정해짐 */
+    width: max-content;
+    min-width: 0;
+  }
+  .dropdown-wide a {
+    white-space: nowrap;
+  }
+}
+
+/* ── 영상: 화면 가운데 큰 창에서 재생 ── */
+.video-viewer {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.video-viewer::backdrop {
+  background: rgba(8, 23, 48, 0.88);
+}
+.video-viewer[open] {
+  display: grid;
+  place-items: center;
+}
+.video-viewer-box {
+  /* 화면 폭의 92%까지, 최대 1040px. 화면 높이에도 맞춰 16:9가 넘치지 않게 */
+  width: min(1040px, 92vw, (100vh - 150px) * 16 / 9);
+}
+.video-viewer-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.video-viewer-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-viewer-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9375rem;
+  word-break: keep-all;
+}
+.video-viewer-caption a {
+  flex: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.875rem;
+}
+.video-viewer-caption a:hover {
+  color: var(--white);
+}
+.video-viewer-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(8, 23, 48, 0.6);
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.video-viewer-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+html:has(.video-viewer[open]) {
+  overflow: hidden; /* 재생하는 동안 뒤쪽 페이지가 스크롤되지 않게 */
+}
+@media (max-width: 640px) {
+  .video-viewer-box {
+    width: calc(100vw - 24px);
+  }
+  .video-viewer-caption {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
