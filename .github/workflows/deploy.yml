@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: "17 */3 * * *" # 3시간마다 블로그·유튜브 새 글을 확인해서 반영
+    - cron: "17 */3 * * *" # 3시간마다 블로그·유튜브·언론 보도 새 글을 확인해서 반영
 
 permissions:
   contents: write # 새 글 목록을 저장소에 저장하기 위해 필요
@@ -27,18 +27,21 @@ jobs:
           cache: npm
       - run: npm ci
 
-      - name: 블로그·유튜브 새 글 가져오기
+      - name: 블로그·유튜브·언론 보도 새 글 가져오기
         run: npm run sync
+        env:
+          NAVER_API_HUB_ID: ${{ secrets.NAVER_API_HUB_ID }}
+          NAVER_API_HUB_SECRET: ${{ secrets.NAVER_API_HUB_SECRET }}
 
       - name: 바뀐 목록을 저장소에 저장
         run: |
-          git add data/blog-posts.json data/youtube-videos.json
+          git add data/blog-posts.json data/youtube-videos.json data/press-articles.json
           if git diff --cached --quiet; then
             echo "새 글 없음"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "블로그·유튜브 목록 자동 갱신"
+            git commit -m "블로그·유튜브·언론 보도 목록 자동 갱신"
             git pull --rebase origin main && git push origin HEAD:main \
               || echo "::warning::목록 저장에 실패했습니다. 이번 배포에는 새 글이 반영됩니다."
           fi

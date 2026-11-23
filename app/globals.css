@@ -4008,3 +4008,54 @@ html:has(.video-viewer[open]) {
     gap: 6px;
   }
 }
+
+/* ── 언론 보도 ── */
+.press-note {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+/* 관리용 후보 페이지 (/press/candidates/) */
+.press-howto {
+  list-style: decimal;
+  margin: 0 0 28px;
+  padding: 18px 20px 18px 38px;
+  border-radius: 12px;
+  background: var(--surface);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+.press-candidate-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.press-candidate-list li {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.press-candidate-list a {
+  font-weight: 600;
+}
+.press-candidate-list a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+.press-candidate-list span {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.press-candidate-list code,
+.press-howto code {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #e8eef8;
+  color: var(--navy);
+  font-size: 0.8125rem;
+  user-select: all; /* 한 번 누르면 통째로 선택돼서 복사하기 쉬움 */
+}
+.press-candidate-list code {
+  justify-self: start;
+}
