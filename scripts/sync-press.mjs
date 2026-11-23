@@ -4,6 +4,7 @@
 // - "노무법인 현명"이 들어간 기사 → 언론 보도 페이지에 바로 게시
 // - 노무사 이름 + "노무사"로만 찾은 기사 → 후보로 저장 (확인 후 data/press-overrides.json의 show에 넣으면 게시)
 // - 기사 본문은 옮기지 않고 제목·언론사·날짜·링크만 저장합니다.
+// - 언론사 이름은 아래 OUTLETS 목록 → 기사 페이지에 적힌 사이트 이름(og:site_name) → 도메인 순으로 정합니다.
 // - 네이버 API 키(NAVER_API_HUB_ID, NAVER_API_HUB_SECRET)가 없거나 검색이 실패하면
 //   저장된 목록을 그대로 두고, 빌드는 멈추지 않습니다.
 
@@ -64,6 +65,27 @@ const OUTLETS = {
   "inews365.com": "충북일보",
   "chungnamilbo.co.kr": "충남일보",
   "labortoday.co.kr": "매일노동뉴스",
+  "jbnews.com": "중부매일",
+  "idjnews.kr": "당진신문",
+  "dtnews24.com": "디트뉴스24",
+  "goodmorningcc.com": "굿모닝충청",
+  "incheonilbo.com": "인천일보",
+  "kgnews.co.kr": "경기신문",
+  "ekn.kr": "에너지경제신문",
+  "viva100.com": "브릿지경제",
+  "asiatoday.co.kr": "아시아투데이",
+  "newscj.com": "천지일보",
+  "breaknews.com": "브레이크뉴스",
+  "m-i.kr": "매일일보",
+  "shinailbo.co.kr": "신아일보",
+  "gukjenews.com": "국제뉴스",
+  "newdaily.co.kr": "뉴데일리",
+  "segyebiz.com": "세계비즈",
+  "paxnetnews.com": "팍스넷뉴스",
+  "thescoop.co.kr": "더스쿠프",
+  "lawissue.co.kr": "로이슈",
+  "hellot.net": "헬로티",
+  "todayenergy.kr": "투데이에너지",
   "worklaw.co.kr": "노동법률",
   "hrinsight.co.kr": "HR Insight",
 };
@@ -91,6 +113,34 @@ function outletName(url) {
     return "";
   }
 }
+
+// 목록에 없는 언론사는 기사 페이지에 적힌 사이트 이름(og:site_name)을 읽어 옵니다. (지역신문 등)
+async function siteName(url) {
+  try {
+    const response = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; yeshm-press-bot; +https://yeshm.co.kr)" },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!response.ok) return "";
+    const bytes = new Uint8Array(await response.arrayBuffer()).slice(0, 300000);
+    // 오래된 지역신문은 EUC-KR 글자 방식을 쓰는 경우가 있어 먼저 확인합니다.
+    const head = new TextDecoder("latin1").decode(bytes.slice(0, 4000));
+    const charset = /charset=["']?(euc-kr|ks_c_5601-1987|cp949)/i.test(`${response.headers.get("content-type")} ${head}`)
+      ? "euc-kr"
+      : "utf-8";
+    const html = new TextDecoder(charset).decode(bytes);
+    const match =
+      html.match(/<meta[^>]+property=["']og:site_name["'][^>]*content=["']([^"']+)["']/i) ??
+      html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:site_name["']/i);
+    const name = clean(match?.[1] ?? "");
+    // 한글이 있고 너무 길지 않은 이름만 씁니다. (도메인이나 긴 문구는 버림)
+    return /[가-힣]/.test(name) && name.length <= 20 ? name : "";
+  } catch {
+    return "";
+  }
+}
+
+const looksLikeDomain = (text) => /^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(text);
 
 // 구성원 이름을 data/members.ts에서 읽어 옵니다. (구성원이 바뀌면 검색어도 저절로 바뀜)
 async function memberNames() {
@@ -130,6 +180,19 @@ async function main() {
   const saved = await readSaved();
   const articles = new Map(saved.articles.map((article) => [article.id, article]));
   let added = 0;
+  let renamed = 0;
+
+  // 이미 저장된 기사 중 언론사가 도메인으로 남은 것은 이름을 한 번 다시 찾아봅니다.
+  for (const article of articles.values()) {
+    if (article.sourceChecked || !looksLikeDomain(article.source)) continue;
+    const name = outletName(article.url);
+    const better = looksLikeDomain(name) ? await siteName(article.url) : name;
+    article.sourceChecked = true;
+    if (better && better !== article.source) {
+      article.source = better;
+      renamed += 1;
+    }
+  }
 
   for (const query of queries) {
     const items = await search(query, id, secret);
@@ -150,10 +213,12 @@ async function main() {
 
       const articleId = createHash("sha1").update(url).digest("hex").slice(0, 12);
       if (articles.has(articleId)) continue; // 이미 저장된 기사는 그대로 둡니다.
+      let source = outletName(url);
+      if (looksLikeDomain(source)) source = (await siteName(url)) || source;
       articles.set(articleId, {
         id: articleId,
         title,
-        source: outletName(url),
+        source,
         date: date.toISOString(),
         url,
         naverUrl: item.link && item.link !== url ? item.link : undefined,
@@ -165,7 +230,7 @@ async function main() {
     await new Promise((resolve) => setTimeout(resolve, 200)); // 너무 빠르게 연달아 부르지 않게
   }
 
-  if (added === 0) {
+  if (added === 0 && renamed === 0) {
     console.log(`언론 보도: 새 기사 없음 (저장 ${articles.size}건)`);
     return;
   }
@@ -175,7 +240,7 @@ async function main() {
   const temp = new URL("../data/press-articles.tmp.json", import.meta.url);
   await writeFile(temp, `${JSON.stringify(data, null, 2)}\n`, "utf8");
   await rename(temp, DATA_FILE);
-  console.log(`언론 보도: 새 기사 ${added}건 저장 (전체 ${list.length}건)`);
+  console.log(`언론 보도: 새 기사 ${added}건 저장, 언론사 이름 ${renamed}건 정리 (전체 ${list.length}건)`);
 }
 
 main().catch((error) => {
