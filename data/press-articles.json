@@ -1,4 +1,865 @@
 {
-  "updatedAt": null,
-  "articles": []
+  "updatedAt": "2026-11-23T02:16:13.114Z",
+  "articles": [
+    {
+      "id": "b9e1ae9714f6",
+      "title": "50인 미만 사업장 안전 지원 확대..당진 노사민정, 공동선언문 채택",
+      "source": "idjnews.kr",
+      "date": "2026-10-01T09:16:00.000Z",
+      "url": "https://www.idjnews.kr/news/articleView.html?idxno=303014",
+      "matched": [
+        "노무법인 현명"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "70c14a16ce7a",
+      "title": "新노조 리스크 해소하려면...‘어떻게 주느냐’ 중요",
+      "source": "매일경제",
+      "date": "2026-09-12T12:01:00.000Z",
+      "url": "https://www.mk.co.kr/article/12144233",
+      "naverUrl": "https://n.news.naver.com/mnews/article/024/0000108168?sid=101",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "08359e5bcf7a",
+      "title": "우체국물류지원단, 노·사 고위직 대상 노사 상생 리더십 교육 진행",
+      "source": "hellot.net",
+      "date": "2026-08-27T00:54:00.000Z",
+      "url": "https://www.hellot.net/news/article.html?no=114581",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "6ac636e41110",
+      "title": "우체국물류지원단, 노사 상생 리더십 교육 실시",
+      "source": "lawissue.co.kr",
+      "date": "2026-08-26T08:24:00.000Z",
+      "url": "http://www.lawissue.co.kr/view.php?ud=202608261722549423f4ab64559d_12",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "5cf5040a819a",
+      "title": "우체국물류지원단, ‘노사 상생 리더십’ 교육 시행…노·사간 협력 제...",
+      "source": "swtvnews.com",
+      "date": "2026-08-26T05:46:00.000Z",
+      "url": "https://swtvnews.com/news/newsview.php?ncode=1065590214008687",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "69fd0c5fdf5b",
+      "title": "분배 갈등 휘말린 산업계 후폭풍",
+      "source": "매일경제",
+      "date": "2026-06-04T12:01:00.000Z",
+      "url": "https://www.mk.co.kr/article/12060929",
+      "naverUrl": "https://n.news.naver.com/mnews/article/024/0000106011?sid=101",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "40e6bb94b7b2",
+      "title": "격랑 올라탄 노사관계…경영권과 노동권 사이 충돌 불가피",
+      "source": "매일경제",
+      "date": "2026-04-24T12:01:00.000Z",
+      "url": "https://www.mk.co.kr/article/12019722",
+      "naverUrl": "https://n.news.naver.com/mnews/article/024/0000105045?sid=101",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "2a7069e55ac0",
+      "title": "충남공동근로복지기금9호 출범, 천안 중소기업 노동자 복지 지원 본격화",
+      "source": "동양일보",
+      "date": "2026-03-22T06:20:00.000Z",
+      "url": "http://www.dynews.co.kr/news/articleView.html?idxno=843191",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "323d512d7525",
+      "title": "충남공동근로복지기금 9호 출범 ··· 천안 중소기업 노동자 복지 강화",
+      "source": "금강일보",
+      "date": "2026-03-22T02:32:00.000Z",
+      "url": "https://www.ggilbo.com/news/articleView.html?idxno=1147907",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "c8f6a37172e6",
+      "title": "충남 북부 중소기업 근로자 복지 강화…공동근로복지기금 제9호 출범",
+      "source": "asiatoday.co.kr",
+      "date": "2026-03-22T00:50:00.000Z",
+      "url": "https://www.asiatoday.co.kr/view.php?key=20260322010006346",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "f65194f47974",
+      "title": "충남공동근로복지기금 제9호, 중소기업 복지 혁신 선도",
+      "source": "viva100.com",
+      "date": "2026-03-22T00:30:00.000Z",
+      "url": "https://www.viva100.com/article/20260322500153",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "0bbb09aa3ae7",
+      "title": "충남공동근로복지기금 9호 출범…천안 중소기업 38개사 480명 혜택",
+      "source": "jbnews.com",
+      "date": "2026-03-20T07:06:00.000Z",
+      "url": "https://www.jbnews.com/news/articleView.html?idxno=1500797",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "805b30718952",
+      "title": "충남공동근로복지기금9호 공식 출범… 6년간 38억원 기금 운영",
+      "source": "newscj.com",
+      "date": "2026-03-20T07:00:00.000Z",
+      "url": "https://www.newscj.com/news/articleView.html?idxno=3386474",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "0b334e0f67ac",
+      "title": "충남북부상의, 충남공동근로복지기금9호 출범",
+      "source": "뉴시스",
+      "date": "2026-03-20T05:23:00.000Z",
+      "url": "https://www.newsis.com/view/NISX20260320_0003557138",
+      "naverUrl": "https://n.news.naver.com/mnews/article/003/0013835211?sid=102",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "53a4bcb73c57",
+      "title": "충북테크노파크, 개인정보 보호 및 아동학대 예방교육 진행",
+      "source": "breaknews.com",
+      "date": "2025-06-13T00:08:00.000Z",
+      "url": "http://www.breaknews.com/1124460",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "a76b3f648349",
+      "title": "충북테크노파크 '개인정보 보호·아동학대 예방' 교육",
+      "source": "jbnews.com",
+      "date": "2025-06-12T08:04:00.000Z",
+      "url": "https://www.jbnews.com/news/articleView.html?idxno=1479465",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "f4c168fe9484",
+      "title": "충북TP, '개인정보 보호·아동학대 예방' 교육 실시",
+      "source": "todayenergy.kr",
+      "date": "2025-06-12T07:04:00.000Z",
+      "url": "https://www.todayenergy.kr/news/articleView.html?idxno=284416",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "b36ba31c2eb3",
+      "title": "여성기업종합지원센터 충북센터 49차 여성CEO포럼 개최",
+      "source": "충청타임즈",
+      "date": "2024-05-22T11:08:00.000Z",
+      "url": "http://www.cctimes.kr/news/articleView.html?idxno=798650",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "311067987513",
+      "title": "제49차 충북 여성CEO포럼 성료",
+      "source": "충청일보",
+      "date": "2024-05-22T10:08:00.000Z",
+      "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=977216",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "76bc6b436ad9",
+      "title": "여기종 충북센터, 충북여성 CEO포럼",
+      "source": "동양일보",
+      "date": "2024-05-22T08:40:00.000Z",
+      "url": "http://www.dynews.co.kr/news/articleView.html?idxno=753172",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "6fb0b8dc6988",
+      "title": "여성기업종합지원센터 충북센터, 충북여성CEO포럼 개최",
+      "source": "jbnews.com",
+      "date": "2024-05-22T07:32:00.000Z",
+      "url": "http://www.jbnews.com/news/articleView.html?idxno=1437230",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "26b8cfcca1d2",
+      "title": "여기종 충북센터, 49차 충북여성 CEO포럼 개최",
+      "source": "충북일보",
+      "date": "2024-05-22T06:34:00.000Z",
+      "url": "https://www.inews365.com/news/article.html?no=815413",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "41e9b0e85268",
+      "title": "\"지하철 타고 '도쿄' 갈래\"…서울 한복판서 길 잃은 할아버지의 사연",
+      "source": "서울경제",
+      "date": "2024-05-13T20:11:00.000Z",
+      "url": "https://www.sedaily.com/NewsView/2D96NCXZT9",
+      "naverUrl": "https://n.news.naver.com/mnews/article/011/0004340380?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "d4f976db4cda",
+      "title": "“지하철타고 도쿄갈래”…한국 왔다 길 잃은 日치매노인에게 벌어진 일",
+      "source": "동아일보",
+      "date": "2024-05-13T01:57:00.000Z",
+      "url": "https://www.donga.com/news/Society/article/all/20240513/124908589/2",
+      "naverUrl": "https://n.news.naver.com/mnews/article/020/0003564336?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "8bae4a99a912",
+      "title": "\"지하철 타고 도쿄에…\" 서울서 길 잃은 日 노인 사연 보니",
+      "source": "한국경제",
+      "date": "2024-05-13T01:28:00.000Z",
+      "url": "https://www.hankyung.com/article/2024051350197",
+      "naverUrl": "https://n.news.naver.com/mnews/article/015/0004983968?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "23a0aa5e503c",
+      "title": "“지하철 타고 도쿄 갈래” 서울 한복판 日 치매노인…시민들이 도왔다",
+      "source": "세계일보",
+      "date": "2024-05-13T01:19:00.000Z",
+      "url": "http://www.segye.com/newsView/20240513505142?OutUrl=naver",
+      "naverUrl": "https://n.news.naver.com/mnews/article/022/0003932404?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "d3a121eec603",
+      "title": "韓 관광 왔다가 길 잃은 日치매노인, 가족 품으로…뭉클한 사연",
+      "source": "헤럴드경제",
+      "date": "2024-05-13T01:06:00.000Z",
+      "url": "https://news.heraldcorp.com/view.php?ud=20240513050194",
+      "naverUrl": "https://n.news.naver.com/mnews/article/016/0002307804?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "50fd9608b85b",
+      "title": "“지하철 타고 도쿄 갈래” 여행 온 日 치매노인…시민들이 도왔다[따전...",
+      "source": "이데일리",
+      "date": "2024-05-13T00:53:00.000Z",
+      "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=01863046638888592",
+      "naverUrl": "https://n.news.naver.com/mnews/article/018/0005738103?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "3e80f4db9981",
+      "title": "\"지하철 타고 도쿄 가려고\" 서울서 길 잃은 日치매노인 사연",
+      "source": "뉴시스",
+      "date": "2024-05-13T00:52:00.000Z",
+      "url": "https://www.newsis.com/view/?id=NISX20240513_0002732335&cID=10201&pID=10200",
+      "naverUrl": "https://n.news.naver.com/mnews/article/003/0012542049?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "19bc1e3a8e8c",
+      "title": "서울서 길 잃은 日 치매 노인, 가족과 다시 만난 사연",
+      "source": "서울신문",
+      "date": "2024-05-13T00:24:00.000Z",
+      "url": "https://www.seoul.co.kr/news/society/accident/2024/05/13/20240513500019?wlog_tag3=naver",
+      "naverUrl": "https://n.news.naver.com/mnews/article/081/0003450451?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ff8558fcbfba",
+      "title": "남대문시장서 길 잃은 일본 치매노인, 시민들 도움에 가족 품으로",
+      "source": "아시아경제",
+      "date": "2024-05-13T00:22:00.000Z",
+      "url": "https://view.asiae.co.kr/article/2024051309082226862",
+      "naverUrl": "https://n.news.naver.com/mnews/article/277/0005417447?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "d705fdc1300c",
+      "title": "“지하철 타고 도쿄 갈래” 한국서 길 잃은 日치매노인, 무슨 사연?",
+      "source": "조선일보",
+      "date": "2024-05-12T23:55:00.000Z",
+      "url": "https://www.chosun.com/national/national_general/2024/05/13/AYY636LFZ5AFTPMFWKORWEGMS4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+      "naverUrl": "https://n.news.naver.com/mnews/article/023/0003833863?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "71b693f1094c",
+      "title": "여행 온 日치매노인, 남대문서 길잃어…시민들이 도왔다",
+      "source": "국민일보",
+      "date": "2024-05-12T22:10:00.000Z",
+      "url": "https://www.kmib.co.kr/article/view.asp?arcid=0020091598&code=61121211&cp=nv",
+      "naverUrl": "https://n.news.naver.com/mnews/article/005/0001695549?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "4f3e463404a6",
+      "title": "남대문서 길 잃은 日치매노인, 가족과 다시 만나게 된 사연",
+      "source": "중앙일보",
+      "date": "2024-05-12T12:49:00.000Z",
+      "url": "https://www.joongang.co.kr/article/25248702",
+      "naverUrl": "https://n.news.naver.com/mnews/article/025/0003359752?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "a2fc31edc2d9",
+      "title": "별일까 동네북일까…‘씁쓸해진’ 기업 임원 [경영전략노트]",
+      "source": "매일경제",
+      "date": "2024-05-09T12:02:00.000Z",
+      "url": "https://www.mk.co.kr/article/11006727",
+      "naverUrl": "https://n.news.naver.com/mnews/article/024/0000089040?sid=101",
+      "matched": [
+        "노무법인 현명"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "fe02455de12b",
+      "title": "[ESG 기고] ESG와 노동을 통한 지속가능경영",
+      "source": "idsn.co.kr",
+      "date": "2024-03-25T08:46:00.000Z",
+      "url": "https://idsn.co.kr/news/view/1065601956893617",
+      "matched": [
+        "노무법인 현명"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "916f6ed2267c",
+      "title": "열흘 이상 공동연차에…'휴가 자유' 외치는 2030",
+      "source": "서울경제",
+      "date": "2024-02-04T09:05:00.000Z",
+      "url": "https://www.sedaily.com/NewsView/2D58BBRG2C",
+      "naverUrl": "https://n.news.naver.com/mnews/article/011/0004295688?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "6aabafdf9ff7",
+      "title": "[르포]\"주방 아줌마 팔 데면 잡아간다고?\"…중처법 오해, 현장 혼선",
+      "source": "아시아경제",
+      "date": "2024-01-31T22:14:00.000Z",
+      "url": "https://view.asiae.co.kr/article/2024013120362893235",
+      "naverUrl": "https://n.news.naver.com/mnews/article/277/0005374603?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "e4d30f183c91",
+      "title": "남양주도시공사 인권경영 선언",
+      "source": "incheonilbo.com",
+      "date": "2023-12-17T10:20:00.000Z",
+      "url": "https://www.incheonilbo.com/news/articleView.html?idxno=1225899",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "81f7e9a90fe9",
+      "title": "남양주도시공사, ‘인권경영 선언문’ 선포식 개최",
+      "source": "kgnews.co.kr",
+      "date": "2023-12-17T05:44:00.000Z",
+      "url": "https://www.kgnews.co.kr/news/article.html?no=774729",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "660c4a84ea17",
+      "title": "남양주도시공사,‘인권경영 선언문’선포",
+      "source": "viva100.com",
+      "date": "2023-12-17T05:04:00.000Z",
+      "url": "https://www.viva100.com/main/view.php?key=20231217010005066",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "86cba67c602c",
+      "title": "남양주도시공사,'인권경영 선언문' 선포....\"인권경영 정착과 확산 노력...",
+      "source": "m-i.kr",
+      "date": "2023-12-17T03:14:00.000Z",
+      "url": "http://www.m-i.kr/news/articleView.html?idxno=1076377",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "1673b6179d81",
+      "title": "남양주도시공사, ‘인권경영 선언문’ 선포",
+      "source": "shinailbo.co.kr",
+      "date": "2023-12-16T02:28:00.000Z",
+      "url": "http://www.shinailbo.co.kr/news/articleView.html?idxno=1801710",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "e883b936a262",
+      "title": "남양주도시공사, '인권경영 선언문'선포",
+      "source": "gukjenews.com",
+      "date": "2023-12-15T10:34:00.000Z",
+      "url": "https://www.gukjenews.com/news/articleView.html?idxno=2879483",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "829363ba835f",
+      "title": "올윈에듀, ‘직장 내 장애인 인식개선’ 교육기관 우수 교육 콘텐츠 선...",
+      "source": "gosiweek.com",
+      "date": "2023-12-12T05:38:00.000Z",
+      "url": "https://www.gosiweek.com/article/1065591342633096",
+      "matched": [
+        "노무법인 현명",
+        "이철"
+      ],
+      "status": "shown"
+    },
+    {
+      "id": "cd1455ad7e3d",
+      "title": "무료 법률·노무 상담…이심전심 봉사 부부",
+      "source": "incheonilbo.com",
+      "date": "2023-11-14T09:52:00.000Z",
+      "url": "https://www.incheonilbo.com/news/articleView.html?idxno=1220666",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "41978e8c19ce",
+      "title": "‘신혼여행 대신’ ‘무료 법률&노무 상담’ 재능기부 봉사활동 펼쳐 화...",
+      "source": "viva100.com",
+      "date": "2023-11-14T00:24:00.000Z",
+      "url": "https://www.viva100.com/main/view.php?key=20231114010003924",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "4bfef4e5493b",
+      "title": "[단독]‘직장 갑질’ 신고, 4년간 13% 인정… “모호한 기준 명확히 해야...",
+      "source": "동아일보",
+      "date": "2023-07-13T18:02:00.000Z",
+      "url": "https://www.donga.com/news/Society/article/all/20230714/120228358/1",
+      "naverUrl": "https://n.news.naver.com/mnews/article/020/0003509303?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "95d1cfbc2837",
+      "title": "[단독]‘직장 갑질’ 2만8495건 중 기소 0.7%뿐…“기준 모호해 혼란”",
+      "source": "동아일보",
+      "date": "2023-07-13T09:27:00.000Z",
+      "url": "https://www.donga.com/news/Society/article/all/20230713/120224261/1",
+      "naverUrl": "https://n.news.naver.com/mnews/article/020/0003509234?sid=102",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "68cd7578c140",
+      "title": "'노동이사제' 오늘부터 시행… \"권한 늘려야\" vs \"경영효율성 저해될 것...",
+      "source": "newdaily.co.kr",
+      "date": "2022-08-04T08:40:00.000Z",
+      "url": "https://www.newdaily.co.kr/site/data/html/2022/08/04/2022080400180.html",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "9fe1328a90cc",
+      "title": "휴넷 중대재해처벌법 교육 과정 출시,'대응 매뉴얼' 준비",
+      "source": "머니투데이",
+      "date": "2022-01-27T07:49:00.000Z",
+      "url": "http://news.mt.co.kr/mtview.php?no=2022012709251675948",
+      "naverUrl": "https://n.news.naver.com/mnews/article/008/0004701963?sid=101",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "e060de3e8d51",
+      "title": "'중대재해처벌법' 오늘부터 시행…휴넷, 교육과정 대응 매뉴얼 선보여",
+      "source": "매일경제",
+      "date": "2022-01-27T02:30:00.000Z",
+      "url": "http://news.mk.co.kr/newsRead.php?no=82269&year=2022",
+      "naverUrl": "https://n.news.naver.com/mnews/article/009/0004914757?sid=101",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ec93f97d9022",
+      "title": "휴넷, '중대재해처벌법' 대비를 위한 교육과정 출시",
+      "source": "서울경제",
+      "date": "2022-01-11T00:34:00.000Z",
+      "url": "https://www.sedaily.com/NewsView/260TO61ROT",
+      "naverUrl": "https://n.news.naver.com/mnews/article/011/0004006511?sid=102",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ea8b1fd354f1",
+      "title": "휴넷, 중대재해처벌법 교육과정 출시",
+      "source": "segyebiz.com",
+      "date": "2022-01-10T04:42:00.000Z",
+      "url": "http://www.segyebiz.com/newsView/20220110508685?OutUrl=naver",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "fd7b6a7856c6",
+      "title": "원격훈련기관 휴넷, 중대재해처벌법 교육과정 운영",
+      "source": "이데일리",
+      "date": "2022-01-07T00:53:00.000Z",
+      "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=01754806632195424",
+      "naverUrl": "https://n.news.naver.com/mnews/article/018/0005122324?sid=101",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "585356bd41c3",
+      "title": "충남교육청, 학생 알바피해 사각지대 해소한다",
+      "source": "dtnews24.com",
+      "date": "2019-11-08T05:51:00.000Z",
+      "url": "http://www.dtnews24.com/news/articleView.html?idxno=563072",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "a448e0805a8d",
+      "title": "충남교육청, 찾아가는 노동인권상담 운영",
+      "source": "idjnews.kr",
+      "date": "2019-11-08T01:25:00.000Z",
+      "url": "http://www.idjnews.kr/news/articleView.html?idxno=108917",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "1390799967f8",
+      "title": "충남교육청, 찾아가는 노동인권상담 운영",
+      "source": "bzeronews.com",
+      "date": "2019-11-08T01:04:00.000Z",
+      "url": "http://www.bzeronews.com/news/articleView.html?idxno=418986",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "35532527cb79",
+      "title": "[EE칼럼] 직장 내 '매뉴얼' 취업 규칙, '毒' 되지 않으려면…",
+      "source": "ekn.kr",
+      "date": "2019-10-24T08:16:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=460002",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "85ef7a4f172d",
+      "title": "‘암호화폐 급여’의 숨겨진 3가지 리스크",
+      "source": "paxnetnews.com",
+      "date": "2019-09-02T05:07:00.000Z",
+      "url": "https://www.paxnetnews.com/articles/51819",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ca5f7ef19ce6",
+      "title": "[칼럼] 세종대왕의 '직무능력중심 채용'을 보고 배워야할 점",
+      "source": "ekn.kr",
+      "date": "2019-08-22T02:28:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=449265",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "a08657e8242e",
+      "title": "[전문가 시각] 달라지는 소액체당금 제도",
+      "source": "ekn.kr",
+      "date": "2019-05-27T00:54:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=434041",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "78b7d79ae0ac",
+      "title": "[전문가 시각] 기업과 근로자를 위한 동기부여 '근무혁신 인센티브'",
+      "source": "ekn.kr",
+      "date": "2019-04-15T02:12:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=426437",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "5fb7216528c5",
+      "title": "주 52시간 막는 '돌관공사'를 아시나요",
+      "source": "thescoop.co.kr",
+      "date": "2019-03-11T02:28:00.000Z",
+      "url": "http://www.thescoop.co.kr/news/articleView.html?idxno=34121",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "a7de8496269f",
+      "title": "[EE칼럼] 해고예고 제도에 어긋나는 트럼프의 \"You’re fired\"",
+      "source": "ekn.kr",
+      "date": "2019-01-31T05:54:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=412822",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "abbc3c7a2ba5",
+      "title": "[전문가 시각] 직업성 질병에 대해",
+      "source": "ekn.kr",
+      "date": "2018-10-04T06:04:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=389411",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "6a87df7a7b4e",
+      "title": "[전문가 기고] '최저임금 1만원' 공약폐기, 文정부의 실패인가?",
+      "source": "ekn.kr",
+      "date": "2018-07-22T21:32:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=375901",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "7ddc2ace1ba9",
+      "title": "‘부정합격자 채용취소’ 모범규준에도...낙하산은 버티면 그만?",
+      "source": "ekn.kr",
+      "date": "2018-06-11T07:16:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=367300",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "d4d9e838c554",
+      "title": "누구를 위한 52시간인가? 은행권 근로단축 명과 암",
+      "source": "ekn.kr",
+      "date": "2018-05-23T07:14:00.000Z",
+      "url": "http://www.ekn.kr/news/article.html?no=363567",
+      "matched": [
+        "우재원"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "13bfcae4d425",
+      "title": "충남지역인적자원개발위원회, 기술혁신에 대비한 인적자원 개발 주제로...",
+      "source": "금강일보",
+      "date": "2017-11-30T06:56:00.000Z",
+      "url": "http://www.ggilbo.com/news/articleView.html?idxno=425245",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "e2e50ca9be9b",
+      "title": "충남북부상의 인사노무관리 종합 아카데미 개최",
+      "source": "ccdailynews.com",
+      "date": "2017-10-18T00:58:00.000Z",
+      "url": "http://www.ccdailynews.com/news/articleView.html?idxno=941739",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ccdadf0392ab",
+      "title": "충남북부상의, 인사노무관리 종합 아카데미 개최",
+      "source": "충청투데이",
+      "date": "2017-10-17T11:37:00.000Z",
+      "url": "http://www.cctoday.co.kr/?mod=news&act=articleView&idxno=1091996",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "6b8cdab9b035",
+      "title": "충남북부상공의, 인사노무관리 종합 아카데미 개최",
+      "source": "viva100.com",
+      "date": "2017-10-17T09:02:00.000Z",
+      "url": "http://www.viva100.com/main/view.php?key=20171017010004452",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "78adde6a5c50",
+      "title": "충남북부상의, '채용에서 퇴직까지' 인사노무관리 종합 아카데미 개최",
+      "source": "goodmorningcc.com",
+      "date": "2017-10-17T02:29:00.000Z",
+      "url": "http://www.goodmorningcc.com/news/articleView.html?idxno=74346",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ee6854471cb0",
+      "title": "충남북부상의, 인사노무관리 종합 아카데미 개최",
+      "source": "dtnews24.com",
+      "date": "2017-10-17T02:28:00.000Z",
+      "url": "http://www.dtnews24.com/news/article.html?no=436971",
+      "matched": [
+        "이철"
+      ],
+      "status": "pending"
+    }
+  ]
 }
