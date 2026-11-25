@@ -92,7 +92,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="VIDEOS"
             title="현명 영상"
-            description="유튜브 채널 ‘현명한 노무사’의 최근 영상입니다. 썸네일을 누르면 바로 재생됩니다."
+            description="현명 유튜브 채널의 최근 영상입니다. 썸네일을 누르면 바로 재생됩니다."
             align="center"
           />
           <VideoGrid videos={getVideos(3)} />
