@@ -1,7 +1,14 @@
 {
   "channel": "https://www.youtube.com/channel/UCIefBnoyqD7sQTROpgY9Mlw",
-  "updatedAt": "2026-11-22T08:34:57.176Z",
+  "updatedAt": "2026-11-25T03:23:23.676Z",
   "videos": [
+    {
+      "id": "MJMxWvBmFq4",
+      "title": "노무사들의 출장 중 대화 (feat. 프라이머리)  #노무사  #노동법  #프라이머 #프라이머리",
+      "published": "2026-11-25T02:33:41.000Z",
+      "url": "https://www.youtube.com/watch?v=MJMxWvBmFq4",
+      "thumbnail": "https://i.ytimg.com/vi/MJMxWvBmFq4/hqdefault.jpg"
+    },
     {
       "id": "BESmYwMSDRA",
       "title": "회사 화장실·휴게실, 지원받아 고칠 수 있다고? #Shorts",
@@ -99,13 +106,6 @@
       "published": "2026-09-28T12:46:22.000Z",
       "url": "https://www.youtube.com/watch?v=IbUNlttYq-U",
       "thumbnail": "https://i.ytimg.com/vi/IbUNlttYq-U/hqdefault.jpg"
-    },
-    {
-      "id": "nDkm5RfblRc",
-      "title": "\"관리자는 매연 안 맞나요?\" 항만 27년 폐암 산재 불인정🚨",
-      "published": "2026-09-20T22:18:14.000Z",
-      "url": "https://www.youtube.com/watch?v=nDkm5RfblRc",
-      "thumbnail": "https://i.ytimg.com/vi/nDkm5RfblRc/hqdefault.jpg"
     }
   ]
 }
