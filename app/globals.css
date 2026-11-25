@@ -4059,3 +4059,11 @@ html:has(.video-viewer[open]) {
 .press-candidate-list code {
   justify-self: start;
 }
+
+/* ── 영상 페이지: 유튜브 채널 바로가기 버튼 여러 개 ── */
+.channel-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
