@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-25T04:49:14.040Z",
+  "updatedAt": "2026-11-26T19:06:19.652Z",
   "videos": [
+    {
+      "id": "eWI0odN9WGQ",
+      "title": "노무사 출장 가는 중 대화 1탄. 외제차 #쇼츠 #bmw",
+      "published": "2026-11-26T10:56:27.000Z",
+      "url": "https://www.youtube.com/watch?v=eWI0odN9WGQ",
+      "thumbnail": "https://i.ytimg.com/vi/eWI0odN9WGQ/hqdefault.jpg",
+      "channel": "UCIefBnoyqD7sQTROpgY9Mlw",
+      "channelName": "현명한 노무사"
+    },
     {
       "id": "MJMxWvBmFq4",
       "title": "노무사들의 출장 중 대화 (feat. 프라이머리)  #노무사  #노동법  #프라이머 #프라이머리",
@@ -160,15 +169,6 @@
       "published": "2026-10-11T11:23:55.000Z",
       "url": "https://www.youtube.com/watch?v=3kyRTN2292s",
       "thumbnail": "https://i.ytimg.com/vi/3kyRTN2292s/hqdefault.jpg",
-      "channel": "UCIefBnoyqD7sQTROpgY9Mlw",
-      "channelName": "현명한 노무사"
-    },
-    {
-      "id": "IbUNlttYq-U",
-      "title": "9월을 마무리하는 현명한 노무사 사무실 일상 #쇼츠 #추석",
-      "published": "2026-09-28T12:46:22.000Z",
-      "url": "https://www.youtube.com/watch?v=IbUNlttYq-U",
-      "thumbnail": "https://i.ytimg.com/vi/IbUNlttYq-U/hqdefault.jpg",
       "channel": "UCIefBnoyqD7sQTROpgY9Mlw",
       "channelName": "현명한 노무사"
     }
